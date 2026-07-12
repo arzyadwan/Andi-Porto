@@ -142,7 +142,7 @@ export default function Sidebar() {
               </a>
             )}
           </div>
-          <p className="text-[10px] text-slate-500 font-medium">© {new Date().getFullYear()} Budi Santoso</p>
+          <p className="text-[10px] text-slate-500 font-medium">© {new Date().getFullYear()} Andi Arzatwan</p>
         </div>
       </aside>
 

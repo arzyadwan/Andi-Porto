@@ -23,7 +23,7 @@ export default function About() {
         <div className="flex flex-col mb-12">
           <span className="text-xs uppercase tracking-widest text-indigo-400 font-semibold mb-2">Tentang Saya</span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white">
-            Siapa Budi Santoso?
+            Siapa Andi Arzatwan?
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
         </div>

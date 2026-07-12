@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { personalInfo } from "../data/portfolioData";
 import { ArrowRight, Send } from "lucide-react";
+import ThreeBackground from "./ThreeBackground";
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -52,6 +53,7 @@ export default function Hero() {
       {/* Background Ambient Glows */}
       <div className="glow-bg glow-indigo -top-20 -left-20"></div>
       <div className="glow-bg glow-purple bottom-10 right-0"></div>
+      <ThreeBackground />
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-4xl text-center flex flex-col items-center">

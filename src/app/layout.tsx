@@ -15,10 +15,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Budi Santoso | Frontend Engineer & UI Designer Portfolio",
-  description: "Portofolio profesional Budi Santoso, seorang Frontend Engineer & UI Designer yang berspesialisasi dalam membangun aplikasi web modern, estetik, dan responsif menggunakan Next.js, TypeScript, dan Tailwind CSS.",
-  authors: [{ name: "Budi Santoso" }],
-  keywords: ["Budi Santoso", "Frontend Engineer", "UI/UX Designer", "Next.js", "React Portfolio", "TypeScript Web Developer", "Indonesia Developer"],
+  title: "Andi Arzatwan | Frontend Engineer & UI Designer Portfolio",
+  description: "Portofolio profesional Andi Arzatwan, seorang Frontend Engineer & UI Designer yang berspesialisasi dalam membangun aplikasi web modern, estetik, dan responsif menggunakan Next.js, TypeScript, dan Tailwind CSS.",
+  authors: [{ name: "Andi Arzatwan" }],
+  keywords: ["Andi Arzatwan", "Frontend Engineer", "UI/UX Designer", "Next.js", "React Portfolio", "TypeScript Web Developer", "Indonesia Developer"],
 };
 
 export default function RootLayout({

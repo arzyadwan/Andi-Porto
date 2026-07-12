@@ -15,174 +15,176 @@ const GithubIcon = ({ className }: { className?: string }) => (
 // Interactive React mockups to replace static images and show off Frontend coding skill!
 function ProjectMockup({ id }: { id: string }) {
   if (id === "proj-1") {
-    // Wargaku: Mobile-first citizen portal
+    // Amali Admin Dashboard
     return (
-      <div className="w-full h-full bg-[#050515] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[120px] h-[210px] bg-[#0c0c25] rounded-2xl border-2 border-indigo-500/30 p-2 shadow-lg shadow-indigo-500/20 flex flex-col relative">
-          {/* Status Bar */}
-          <div className="flex justify-between items-center text-[6px] text-indigo-400 mb-1 px-1">
-            <span>09:41</span>
-            <div className="w-10 h-2 bg-indigo-500/10 rounded-full border border-indigo-500/20"></div>
+      <div className="w-full h-full bg-[#030014] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[200px] h-[130px] bg-[#0c0a24] rounded-xl border border-indigo-500/20 p-2.5 shadow-xl flex flex-col justify-between">
+          {/* Dashboard Header */}
+          <div className="flex justify-between items-center border-b border-indigo-500/10 pb-1.5">
+            <span className="text-[7px] font-black text-slate-200 uppercase tracking-wider">Amali Admin</span>
+            <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
           </div>
-          {/* Header */}
-          <div className="bg-indigo-600/20 rounded-md p-1.5 flex items-center gap-1 border border-indigo-500/20 mb-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-indigo-400 flex items-center justify-center text-[5px] font-bold text-white">W</div>
-            <span className="text-[7px] font-bold text-white">Wargaku</span>
+          {/* Stats widgets */}
+          <div className="grid grid-cols-2 gap-2 my-2">
+            <div className="bg-[#050415] rounded p-1 border border-indigo-500/10">
+              <span className="text-[4px] text-slate-500 block uppercase font-bold">Penjualan</span>
+              <span className="text-[7px] text-emerald-400 font-bold block">Rp 45.2M</span>
+            </div>
+            <div className="bg-[#050415] rounded p-1 border border-indigo-500/10">
+              <span className="text-[4px] text-slate-500 block uppercase font-bold">Produk Baru</span>
+              <span className="text-[7px] text-indigo-400 font-bold block">+12 Item</span>
+            </div>
           </div>
-          {/* Feed Card */}
-          <div className="bg-slate-900/60 rounded p-1 border border-slate-800/60 mb-1.5">
-            <span className="text-[5px] text-emerald-400 font-semibold block uppercase">Pengumuman</span>
-            <span className="text-[6px] text-white font-medium block mt-0.5 leading-tight">Gotong Royong Minggu</span>
-          </div>
-          <div className="bg-slate-900/60 rounded p-1 border border-slate-800/60 mb-1.5">
-            <span className="text-[5px] text-purple-400 font-semibold block uppercase">Laporan</span>
-            <span className="text-[6px] text-white font-medium block mt-0.5 leading-tight">Lampu Jalan Mati RT 02</span>
-          </div>
-          {/* Action Button */}
-          <div className="mt-auto w-full py-1 bg-indigo-600 rounded text-center text-[6px] font-bold text-white border border-indigo-500/50">
-            + Kirim Pengaduan
+          {/* User management list */}
+          <div className="space-y-1">
+            <div className="h-3 w-full bg-[#050415] rounded flex items-center justify-between px-1 text-[5px] text-slate-400">
+              <span>Admin Utama</span>
+              <span className="text-emerald-400 font-semibold">Online</span>
+            </div>
           </div>
         </div>
-        {/* Glow effect */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] bg-indigo-500/10 rounded-full filter blur-xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-indigo-500/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
 
   if (id === "proj-2") {
-    // Winsip: Pharmacy cashier dashboard
+    // Crypto AI Studio Website
     return (
-      <div className="w-full h-full bg-[#03030c] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[200px] h-[130px] bg-[#090918] rounded-xl border border-slate-800 p-2 shadow-xl shadow-slate-950/80 flex flex-col">
+      <div className="w-full h-full bg-[#070212] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#12052b] rounded-xl border border-purple-500/20 p-2.5 shadow-xl flex flex-col justify-between">
           {/* Header */}
-          <div className="flex justify-between items-center border-b border-slate-800 pb-1 mb-1.5">
-            <div className="flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-              <span className="text-[7px] font-bold text-slate-200">Winsip Kasir</span>
-            </div>
-            <span className="text-[6px] text-emerald-400 bg-emerald-950 px-1 rounded font-medium">Aktif</span>
+          <div className="flex justify-between items-center">
+            <span className="text-[7px] font-black text-purple-400 tracking-wider">CRYPTO.AI</span>
+            <span className="text-[5px] bg-purple-500/20 text-purple-300 px-1 py-0.5 rounded font-bold uppercase">NFT Live</span>
           </div>
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-1.5 mb-1.5">
-            <div className="bg-slate-900/80 border border-slate-800/40 rounded p-1">
-              <span className="text-[4px] text-slate-500 block uppercase">Omset</span>
-              <span className="text-[7px] text-white font-bold block mt-0.5">Rp 12.4M</span>
+          {/* Crypto Tickers */}
+          <div className="space-y-1 my-1.5">
+            <div className="flex justify-between text-[6px] border-b border-purple-500/10 pb-0.5">
+              <span className="text-slate-300">BTC/USDT</span>
+              <span className="text-emerald-400 font-bold">$92,420 (+4.2%)</span>
             </div>
-            <div className="bg-slate-900/80 border border-slate-800/40 rounded p-1">
-              <span className="text-[4px] text-slate-500 block uppercase">Transaksi</span>
-              <span className="text-[7px] text-white font-bold block mt-0.5">142 Item</span>
-            </div>
-            <div className="bg-slate-900/80 border border-slate-800/40 rounded p-1">
-              <span className="text-[4px] text-slate-500 block uppercase">Stok Menipis</span>
-              <span className="text-[7px] text-rose-400 font-bold block mt-0.5">5 Obat</span>
+            <div className="flex justify-between text-[6px]">
+              <span className="text-slate-300">ETH/USDT</span>
+              <span className="text-emerald-400 font-bold">$3,150 (+2.8%)</span>
             </div>
           </div>
-          {/* Mini Bar Chart Mockup */}
-          <div className="flex-1 flex gap-2 items-end justify-center px-2 pb-1 bg-slate-950/60 rounded border border-slate-800/30">
-            <div className="w-3 h-8 bg-indigo-600/80 rounded-t"></div>
-            <div className="w-3 h-12 bg-indigo-500/80 rounded-t"></div>
-            <div className="w-3 h-6 bg-indigo-600/80 rounded-t"></div>
-            <div className="w-3 h-16 bg-gradient-to-t from-indigo-500 to-purple-500 rounded-t"></div>
-            <div className="w-3 h-10 bg-indigo-600/80 rounded-t"></div>
+          {/* Action Button */}
+          <div className="w-full py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded text-center text-[6px] font-black text-white shadow-md shadow-purple-900/50 cursor-pointer">
+            MINT NFT NOW
           </div>
         </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] bg-purple-500/10 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
 
   if (id === "proj-3") {
-    // Vibrance: Neon brutalism landing page
+    // Event Exposure Media Website
     return (
-      <div className="w-full h-full bg-[#0b0416] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[180px] h-[130px] bg-black border-2 border-purple-500 p-2 shadow-[4px_4px_0px_#a855f7] flex flex-col justify-between">
+      <div className="w-full h-full bg-[#030708] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#071316] rounded-xl border border-emerald-500/20 p-2.5 shadow-xl flex flex-col justify-between">
           <div className="flex justify-between items-center">
-            <span className="text-[8px] font-black text-white bg-purple-500 px-1 py-0.5">VIBRANCE</span>
-            <div className="w-3 h-3 bg-purple-500 rounded-full border border-black"></div>
+            <span className="text-[7px] font-bold text-slate-300">Event Portal</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           </div>
-          <div className="my-2">
-            <h4 className="text-[9px] font-extrabold text-white leading-none tracking-tight">
-              WE SHAPE THE <span className="text-yellow-400">NEON</span> FUTURE.
-            </h4>
-            <p className="text-[5px] text-slate-400 mt-1 uppercase">Creative vector agency</p>
-          </div>
-          <div className="w-full py-1 bg-yellow-400 border border-black text-center text-[7px] font-black text-black">
-            EXPLORE WORKS
+          {/* Event items */}
+          <div className="space-y-1.5 my-2">
+            <div className="bg-[#030809] border border-emerald-500/10 rounded p-1 flex justify-between items-center">
+              <div>
+                <span className="text-[6px] text-white font-bold block">Developer Hackathon</span>
+                <span className="text-[4px] text-slate-400 block mt-0.5">14 Juli 2026</span>
+              </div>
+              <span className="text-[4px] bg-emerald-500/20 text-emerald-300 px-1 rounded uppercase font-bold">Tech</span>
+            </div>
+            <div className="bg-[#030809] border border-emerald-500/10 rounded p-1 flex justify-between items-center">
+              <div>
+                <span className="text-[6px] text-white font-bold block">Music Night Festival</span>
+                <span className="text-[4px] text-slate-400 block mt-0.5">25 Agustus 2026</span>
+              </div>
+              <span className="text-[4px] bg-amber-500/20 text-amber-300 px-1 rounded uppercase font-bold">Music</span>
+            </div>
           </div>
         </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-emerald-500/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
 
   if (id === "proj-4") {
-    // QR Generator Pro Max
+    // Amali POS System
     return (
-      <div className="w-full h-full bg-[#050e0e] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[180px] h-[130px] bg-[#0a1b1b] rounded-xl border border-emerald-500/30 p-2.5 flex gap-3 items-center">
-          {/* Customize options */}
-          <div className="flex-1 space-y-2">
-            <div className="h-2 w-16 bg-emerald-500/10 rounded border border-emerald-500/20"></div>
-            <div className="h-2 w-12 bg-emerald-500/10 rounded border border-emerald-500/20"></div>
-            <div className="h-2.5 w-full bg-emerald-500 rounded text-[5px] text-black font-bold flex items-center justify-center">
-              Generate QR
+      <div className="w-full h-full bg-[#040909] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#0c1a1a] rounded-xl border border-teal-500/20 p-2.5 shadow-xl flex flex-col justify-between">
+          <div className="flex justify-between items-center border-b border-teal-500/10 pb-1">
+            <span className="text-[7px] font-bold text-slate-300">Amali POS Screen</span>
+            <span className="text-[5px] text-teal-400 font-bold">Checkout</span>
+          </div>
+          {/* Checkout items */}
+          <div className="space-y-1 my-1">
+            <div className="flex justify-between text-[5px] text-slate-400">
+              <span>1x Produk Retail A</span>
+              <span>Rp 25.000</span>
+            </div>
+            <div className="flex justify-between text-[5px] text-slate-400 border-b border-teal-500/5 pb-1">
+              <span>2x Produk Retail B</span>
+              <span>Rp 40.000</span>
+            </div>
+            <div className="flex justify-between text-[6px] text-white font-bold">
+              <span>TOTAL</span>
+              <span>Rp 65.000</span>
             </div>
           </div>
-          {/* QR Code Container */}
-          <div className="w-16 h-16 bg-[#030808] border border-emerald-500/40 rounded flex flex-col p-1 gap-1 items-center justify-center relative">
-            {/* Mock QR Grid Pattern */}
-            <div className="grid grid-cols-4 gap-0.5 w-12 h-12">
-              <div className="bg-emerald-400 rounded-sm"></div>
-              <div className="bg-transparent"></div>
-              <div className="bg-emerald-400 rounded-sm"></div>
-              <div className="bg-emerald-400 rounded-sm"></div>
-              
-              <div className="bg-transparent"></div>
-              <div className="bg-emerald-400 rounded-sm"></div>
-              <div className="bg-transparent"></div>
-              <div className="bg-emerald-400 rounded-sm"></div>
-              
-              <div className="bg-emerald-400 rounded-sm"></div>
-              <div className="bg-transparent"></div>
-              <div className="bg-emerald-400 rounded-sm"></div>
-              <div className="bg-transparent"></div>
-              
-              <div className="bg-emerald-400 rounded-sm"></div>
-              <div className="bg-emerald-400 rounded-sm"></div>
-              <div className="bg-transparent"></div>
-              <div className="bg-emerald-400 rounded-sm"></div>
-            </div>
-            {/* Center Logo Dot */}
-            <div className="absolute w-3 h-3 rounded-full bg-emerald-950 border border-emerald-400 flex items-center justify-center text-[4px] font-bold text-white">Q</div>
-          </div>
+          <button className="w-full py-1 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-[6px] rounded text-center cursor-pointer">
+            BAYAR SEKARANG
+          </button>
         </div>
       </div>
     );
   }
 
-  // Default: NewsPoint Portal
+  // default: Kalkulator Kredit Amali Mobile
   return (
-    <div className="w-full h-full bg-[#100905] relative overflow-hidden flex items-center justify-center p-4">
-      <div className="w-[120px] h-[210px] bg-[#22130c] rounded-2xl border-2 border-orange-500/30 p-2 shadow-lg flex flex-col relative">
-        {/* Header */}
-        <div className="flex justify-between items-center border-b border-orange-500/20 pb-1 mb-2">
-          <span className="text-[7px] font-black text-orange-400">NewsPoint</span>
-          <div className="w-1.5 h-1.5 rounded-full bg-orange-400"></div>
+    <div className="w-full h-full bg-[#090503] relative overflow-hidden flex items-center justify-center p-4">
+      <div className="w-[110px] h-[190px] bg-[#1a0f0a] rounded-2xl border-2 border-orange-500/20 p-2 shadow-lg flex flex-col justify-between relative">
+        {/* Status Bar */}
+        <div className="flex justify-between items-center text-[5px] text-orange-400 mb-1 px-1">
+          <span>12:00</span>
+          <span>100%</span>
         </div>
-        {/* Hero image mock */}
-        <div className="w-full h-16 bg-gradient-to-br from-orange-500 to-amber-600 rounded-md p-1.5 flex flex-col justify-end">
-          <span className="text-[6px] text-white font-extrabold leading-none bg-black/40 p-0.5 rounded">Rilis Teknologi Baru</span>
+        {/* Title */}
+        <div className="text-center">
+          <span className="text-[6px] font-bold text-white uppercase tracking-wider block">Kalkulator Kredit</span>
+          <div className="w-6 h-0.5 bg-orange-500 mx-auto mt-0.5 rounded"></div>
         </div>
-        {/* Feed lists */}
-        <div className="mt-2 space-y-1.5">
-          <div className="h-5 w-full bg-slate-900/60 rounded border border-slate-800/40 p-0.5 flex gap-1 items-center">
-            <div className="w-4 h-4 bg-orange-500/20 rounded"></div>
-            <div className="flex-1 h-1.5 bg-slate-700 rounded"></div>
+        {/* Sliders mockup */}
+        <div className="space-y-2 my-2 flex-1 flex flex-col justify-center">
+          <div className="space-y-0.5">
+            <div className="flex justify-between text-[4px] text-slate-400">
+              <span>Jumlah Pinjaman</span>
+              <span className="text-orange-400">Rp 10jt</span>
+            </div>
+            <div className="h-1 w-full bg-slate-900 rounded-full relative">
+              <div className="absolute left-0 top-0 h-full w-2/3 bg-orange-500 rounded-full"></div>
+            </div>
           </div>
-          <div className="h-5 w-full bg-slate-900/60 rounded border border-slate-800/40 p-0.5 flex gap-1 items-center">
-            <div className="w-4 h-4 bg-orange-500/20 rounded"></div>
-            <div className="flex-1 h-1.5 bg-slate-700 rounded"></div>
+          <div className="space-y-0.5">
+            <div className="flex justify-between text-[4px] text-slate-400">
+              <span>Tenor (Bulan)</span>
+              <span className="text-orange-400">12 Bln</span>
+            </div>
+            <div className="h-1 w-full bg-slate-900 rounded-full relative">
+              <div className="absolute left-0 top-0 h-full w-1/2 bg-orange-500 rounded-full"></div>
+            </div>
           </div>
+        </div>
+        {/* Output */}
+        <div className="bg-black/60 rounded p-1 text-center border border-orange-500/10">
+          <span className="text-[4px] text-slate-500 block uppercase">Angsuran / Bln</span>
+          <span className="text-[7px] text-orange-400 font-extrabold block">Rp 983.333</span>
         </div>
       </div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] bg-orange-500/5 rounded-full filter blur-xl pointer-events-none"></div>
     </div>
   );
 }

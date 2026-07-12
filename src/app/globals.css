@@ -4,9 +4,9 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   
-  --color-bg-deep: #020208;
-  --color-bg-base: #060614;
-  --color-bg-elevated: #0e0d24;
+  --color-deep: #020208;
+  --color-dark-base: #060614;
+  --color-elevated: #0e0d24;
   --color-text-primary: #f3f4f6;
   --color-text-secondary: #9ca3af;
   --color-accent-blue: #3b82f6;
@@ -19,12 +19,6 @@
   --background: #020208;
   --foreground: #f3f4f6;
   --font-sans: var(--font-inter);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html, body {

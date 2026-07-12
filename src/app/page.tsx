@@ -8,21 +8,19 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-slate-950 text-slate-100">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-deep text-slate-100">
       {/* Sidebar Navigation */}
       <Sidebar />
 
       {/* Main Content Area (offset by sidebar width on desktop) */}
-      <main className="flex-1 lg:pl-[280px] min-h-screen flex flex-col bg-gradient-to-b from-bg-deep via-bg-base to-bg-deep">
+      <main className="flex-1 lg:pl-[280px] min-h-screen flex flex-col bg-gradient-to-b from-deep via-dark-base to-deep">
         <Hero />
         
-        <div className="max-w-6xl mx-auto w-full px-4 sm:px-8 lg:px-12">
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Contact />
-        </div>
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
       </main>
     </div>
   );
