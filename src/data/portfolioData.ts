@@ -142,6 +142,26 @@ export const projectsData: Project[] = [
     tags: ["Kotlin", "Android SDK", "Material Design"],
     githubLink: "https://github.com/arzyadwan/kalkulator-kredit-amali",
   },
+  {
+    id: "proj-6",
+    title: "Andi Preview",
+    description: "Sistem aplikasi web utilitas untuk preview gambar sementara dengan unggah seret-dan-lepas (drag and drop) dan salin tautan instan.",
+    image: "/projects/andi-preview.webp",
+    category: "Web App",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
+    githubLink: "https://github.com/arzyadwan/Andi-Preview",
+    liveLink: "https://andi-image-preview.vercel.app",
+  },
+  {
+    id: "proj-7",
+    title: "Premium QR Code Generator",
+    description: "Aplikasi generator kode QR premium dengan kustomisasi warna gradien, penyematan logo ikonik, dan ekspor berkas berkualitas tinggi.",
+    image: "/projects/qr-generator.webp",
+    category: "Web App",
+    tags: ["React", "TypeScript", "Vanilla CSS", "Canvas API"],
+    githubLink: "https://github.com/arzyadwan/qr-generator",
+    liveLink: "https://qr-generator-seven-drab.vercel.app",
+  },
 ];
 
 export const experienceTimeline: ExperienceItem[] = [

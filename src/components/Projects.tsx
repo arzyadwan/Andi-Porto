@@ -143,48 +143,128 @@ function ProjectMockup({ id }: { id: string }) {
     );
   }
 
-  // default: Kalkulator Kredit Amali Mobile
-  return (
-    <div className="w-full h-full bg-[#090503] relative overflow-hidden flex items-center justify-center p-4">
-      <div className="w-[110px] h-[190px] bg-[#1a0f0a] rounded-2xl border-2 border-orange-500/20 p-2 shadow-lg flex flex-col justify-between relative">
-        {/* Status Bar */}
-        <div className="flex justify-between items-center text-[5px] text-orange-400 mb-1 px-1">
-          <span>12:00</span>
-          <span>100%</span>
-        </div>
-        {/* Title */}
-        <div className="text-center">
-          <span className="text-[6px] font-bold text-white uppercase tracking-wider block">Kalkulator Kredit</span>
-          <div className="w-6 h-0.5 bg-orange-500 mx-auto mt-0.5 rounded"></div>
-        </div>
-        {/* Sliders mockup */}
-        <div className="space-y-2 my-2 flex-1 flex flex-col justify-center">
-          <div className="space-y-0.5">
-            <div className="flex justify-between text-[4px] text-slate-400">
-              <span>Jumlah Pinjaman</span>
-              <span className="text-orange-400">Rp 10jt</span>
+  if (id === "proj-5") {
+    // Kalkulator Kredit Amali Mobile
+    return (
+      <div className="w-full h-full bg-[#090503] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[110px] h-[190px] bg-[#1a0f0a] rounded-2xl border-2 border-orange-500/20 p-2 shadow-lg flex flex-col justify-between relative">
+          {/* Status Bar */}
+          <div className="flex justify-between items-center text-[5px] text-orange-400 mb-1 px-1">
+            <span>12:00</span>
+            <span>100%</span>
+          </div>
+          {/* Title */}
+          <div className="text-center">
+            <span className="text-[6px] font-bold text-white uppercase tracking-wider block">Kalkulator Kredit</span>
+            <div className="w-6 h-0.5 bg-orange-500 mx-auto mt-0.5 rounded"></div>
+          </div>
+          {/* Sliders mockup */}
+          <div className="space-y-2 my-2 flex-1 flex flex-col justify-center">
+            <div className="space-y-0.5">
+              <div className="flex justify-between text-[4px] text-slate-400">
+                <span>Jumlah Pinjaman</span>
+                <span className="text-orange-400">Rp 10jt</span>
+              </div>
+              <div className="h-1 w-full bg-slate-900 rounded-full relative">
+                <div className="absolute left-0 top-0 h-full w-2/3 bg-orange-500 rounded-full"></div>
+              </div>
             </div>
-            <div className="h-1 w-full bg-slate-900 rounded-full relative">
-              <div className="absolute left-0 top-0 h-full w-2/3 bg-orange-500 rounded-full"></div>
+            <div className="space-y-0.5">
+              <div className="flex justify-between text-[4px] text-slate-400">
+                <span>Tenor (Bulan)</span>
+                <span className="text-orange-400">12 Bln</span>
+              </div>
+              <div className="h-1 w-full bg-slate-900 rounded-full relative">
+                <div className="absolute left-0 top-0 h-full w-1/2 bg-orange-500 rounded-full"></div>
+              </div>
             </div>
           </div>
-          <div className="space-y-0.5">
-            <div className="flex justify-between text-[4px] text-slate-400">
-              <span>Tenor (Bulan)</span>
-              <span className="text-orange-400">12 Bln</span>
-            </div>
-            <div className="h-1 w-full bg-slate-900 rounded-full relative">
-              <div className="absolute left-0 top-0 h-full w-1/2 bg-orange-500 rounded-full"></div>
-            </div>
+          {/* Output */}
+          <div className="bg-black/60 rounded p-1 text-center border border-orange-500/10">
+            <span className="text-[4px] text-slate-500 block uppercase">Angsuran / Bln</span>
+            <span className="text-[7px] text-orange-400 font-extrabold block">Rp 983.333</span>
           </div>
         </div>
-        {/* Output */}
-        <div className="bg-black/60 rounded p-1 text-center border border-orange-500/10">
-          <span className="text-[4px] text-slate-500 block uppercase">Angsuran / Bln</span>
-          <span className="text-[7px] text-orange-400 font-extrabold block">Rp 983.333</span>
-        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] bg-orange-500/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] bg-orange-500/5 rounded-full filter blur-xl pointer-events-none"></div>
+    );
+  }
+
+  if (id === "proj-6") {
+    // Andi Preview: Image Previewer drag and drop mockup
+    return (
+      <div className="w-full h-full bg-[#040815] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#0c1228] rounded-xl border border-sky-500/20 p-2.5 shadow-xl flex flex-col justify-between">
+          <div className="flex justify-between items-center">
+            <span className="text-[7px] font-bold text-slate-200">Andi Image Preview</span>
+            <span className="text-[5px] bg-sky-500/20 text-sky-300 px-1 py-0.5 rounded font-bold">PWA</span>
+          </div>
+          {/* Dashed upload box */}
+          <div className="flex-1 my-2 border border-dashed border-sky-500/30 rounded-lg flex flex-col items-center justify-center bg-[#070b1a] p-1">
+            <svg className="w-4 h-4 text-sky-400 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span className="text-[5px] text-slate-400 text-center font-medium">Seret foto Anda ke sini</span>
+          </div>
+          {/* Action button */}
+          <div className="h-4 w-full bg-sky-500 rounded text-[5px] text-black font-extrabold flex items-center justify-center cursor-pointer">
+            Copy Temporary Link
+          </div>
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] bg-sky-500/5 rounded-full filter blur-xl pointer-events-none"></div>
+      </div>
+    );
+  }
+
+  if (id === "proj-7") {
+    // Premium QR Code Generator mockup
+    return (
+      <div className="w-full h-full bg-[#050f0e] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#0c1e1c] rounded-xl border border-emerald-500/20 p-2.5 shadow-xl flex gap-3 items-center">
+          {/* Settings pane */}
+          <div className="flex-1 space-y-2">
+            <div className="space-y-0.5">
+              <div className="h-1 w-10 bg-emerald-500/20 rounded"></div>
+              <div className="h-2 w-full bg-[#050f0e] border border-emerald-500/10 rounded"></div>
+            </div>
+            <div className="flex gap-1">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-300"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+            </div>
+          </div>
+          {/* QR Code pane */}
+          <div className="w-16 h-16 bg-[#030a09] border border-emerald-500/30 rounded p-1 flex items-center justify-center relative">
+            <div className="grid grid-cols-4 gap-0.5 w-12 h-12">
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-transparent"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-transparent"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-transparent"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-transparent"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-transparent"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+              <div className="bg-transparent"></div>
+              <div className="bg-emerald-400 rounded-sm"></div>
+            </div>
+            <div className="absolute w-3 h-3 rounded-full bg-[#030a09] border border-emerald-400 flex items-center justify-center text-[4px] font-black text-white">QR</div>
+          </div>
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-emerald-500/5 rounded-full filter blur-xl pointer-events-none"></div>
+      </div>
+    );
+  }
+
+  // default fallback
+  return (
+    <div className="w-full h-full bg-[#0a0a14] relative overflow-hidden flex items-center justify-center p-4">
+      <div className="text-[7px] text-slate-500">Preview Mockup</div>
     </div>
   );
 }
