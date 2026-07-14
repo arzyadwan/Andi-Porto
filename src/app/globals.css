@@ -4,11 +4,11 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   
-  --color-deep: #020208;
-  --color-dark-base: #060614;
-  --color-elevated: #0e0d24;
-  --color-text-primary: #f3f4f6;
-  --color-text-secondary: #9ca3af;
+  --color-deep: var(--deep);
+  --color-dark-base: var(--dark-base);
+  --color-elevated: var(--elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
   --color-accent-blue: #3b82f6;
   --color-accent-indigo: #6366f1;
   --color-accent-purple: #a855f7;
@@ -16,9 +16,29 @@
 }
 
 :root {
+  --deep: #f8fafc;
+  --dark-base: #f1f5f9;
+  --elevated: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  --deep: #020208;
+  --dark-base: #060614;
+  --elevated: #0e0d24;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  
   --background: #020208;
   --foreground: #f3f4f6;
-  --font-sans: var(--font-inter);
+  --glass-bg: rgba(10, 10, 25, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.05);
 }
 
 html, body {
@@ -34,22 +54,32 @@ html, body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #020208;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e1b4b;
+  background: #cbd5e1;
   border-radius: 999px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e1b4b;
+}
 ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #312e81;
 }
 
 /* Utilities */
 .glass-effect {
-  background: rgba(10, 10, 25, 0.6);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+.dark .glass-effect {
+  box-shadow: none;
 }
 
 .text-gradient {
@@ -72,9 +102,12 @@ html, body {
   height: 300px;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.15;
+  opacity: 0.08;
   pointer-events: none;
   z-index: 0;
+}
+.dark .glow-bg {
+  opacity: 0.15;
 }
 
 .glow-indigo {

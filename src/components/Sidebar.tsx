@@ -77,17 +77,17 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar (Left side, hidden on mobile/tablet) */}
-      <aside className="hidden lg:flex flex-col justify-between w-[280px] h-screen fixed left-0 top-0 glass-effect border-r border-slate-800/40 p-8 z-40 text-slate-300">
+      <aside className="hidden lg:flex flex-col justify-between w-[280px] h-screen fixed left-0 top-0 glass-effect border-r border-slate-200 dark:border-slate-800/40 p-8 z-40 text-text-secondary">
         {/* Profile Section */}
         <div className="flex flex-col items-center text-center mt-4">
           <div className="relative group cursor-pointer mb-4">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-500"></div>
-            <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-slate-900 bg-slate-950 flex items-center justify-center font-heading text-3xl font-extrabold text-white text-gradient">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 dark:border-slate-900 bg-slate-100 dark:bg-slate-950 flex items-center justify-center font-heading text-3xl font-extrabold text-gradient">
               {personalInfo.name.split(" ").map(n => n[0]).join("")}
             </div>
           </div>
-          <h2 className="font-heading font-bold text-xl text-white tracking-wide">{personalInfo.name}</h2>
-          <p className="text-xs text-indigo-400 font-medium tracking-wider uppercase mt-1">{personalInfo.title}</p>
+          <h2 className="font-heading font-bold text-xl text-text-primary tracking-wide">{personalInfo.name}</h2>
+          <p className="text-xs text-indigo-500 dark:text-indigo-400 font-medium tracking-wider uppercase mt-1">{personalInfo.title}</p>
         </div>
 
         {/* Navigation Menu */}
@@ -101,8 +101,8 @@ export default function Sidebar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group cursor-pointer text-left ${
                   isActive
-                    ? "bg-indigo-600/15 text-indigo-400 font-semibold border-l-2 border-indigo-500"
-                    : "hover:bg-slate-800/40 hover:text-white"
+                    ? "bg-indigo-600/10 dark:bg-indigo-600/15 text-indigo-600 dark:text-indigo-400 font-semibold border-l-2 border-indigo-500"
+                    : "hover:bg-slate-200/50 dark:hover:bg-slate-800/40 hover:text-text-primary"
                 }`}
               >
                 <Icon className={`w-5 h-5 transition-transform duration-300 ${isActive ? "scale-110" : "group-hover:scale-110"}`} />
@@ -119,7 +119,7 @@ export default function Sidebar() {
               href={personalInfo.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/40 hover:border-indigo-500 hover:text-white transition-all cursor-pointer"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-white transition-all cursor-pointer text-text-secondary"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
@@ -127,7 +127,7 @@ export default function Sidebar() {
               href={personalInfo.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/40 hover:border-indigo-500 hover:text-white transition-all cursor-pointer"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-white transition-all cursor-pointer text-text-secondary"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
@@ -136,18 +136,18 @@ export default function Sidebar() {
                 href={personalInfo.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/40 hover:border-indigo-500 hover:text-white transition-all cursor-pointer"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-white transition-all cursor-pointer text-text-secondary"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
             )}
           </div>
-          <p className="text-[10px] text-slate-500 font-medium">© {new Date().getFullYear()} Andi Arzatwan</p>
+          <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">© {new Date().getFullYear()} Andi Arzatwan</p>
         </div>
       </aside>
 
       {/* Mobile Sticky Navigation (Bottom overlay, visible only on mobile/tablet) */}
-      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] h-16 glass-effect border border-slate-800/50 rounded-2xl flex items-center justify-around px-4 py-2 z-50 shadow-2xl shadow-black/50">
+      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] h-16 glass-effect border border-slate-200 dark:border-slate-800/50 rounded-2xl flex items-center justify-around px-4 py-2 z-50 shadow-lg dark:shadow-2xl shadow-indigo-950/10 dark:shadow-black/50">
         {menuItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -156,7 +156,7 @@ export default function Sidebar() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all cursor-pointer ${
-                isActive ? "text-indigo-400 scale-110" : "text-slate-400 hover:text-white"
+                isActive ? "text-indigo-600 dark:text-indigo-400 scale-110" : "text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white"
               }`}
             >
               <Icon className="w-5 h-5" />

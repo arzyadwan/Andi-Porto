@@ -280,7 +280,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-24 px-4 md:px-12 border-b border-slate-900/40"
+      className="relative py-24 px-4 md:px-12 border-b border-slate-200 dark:border-slate-900/40"
     >
       <div className="glow-bg glow-purple top-1/3 -right-20"></div>
 
@@ -288,15 +288,15 @@ export default function Projects() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="flex flex-col">
-            <span className="text-xs uppercase tracking-widest text-indigo-400 font-semibold mb-2">Portofolio</span>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white">
+            <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">Portofolio</span>
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
               Projek Pilihan Saya
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
           </div>
 
           {/* Filter Buttons */}
-          <div className="flex gap-2 bg-slate-950/80 p-1.5 rounded-xl border border-slate-800/50 self-start md:self-auto">
+          <div className="flex gap-2 bg-slate-200/60 dark:bg-slate-950/80 p-1.5 rounded-xl border border-slate-300 dark:border-slate-800/50 self-start md:self-auto">
             {(["All", "Web App", "Design"] as const).map((filter) => (
               <button
                 key={filter}
@@ -304,7 +304,7 @@ export default function Projects() {
                 className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                   activeFilter === filter
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/20"
-                    : "text-slate-400 hover:text-slate-200"
+                    : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
                 }`}
               >
                 {filter === "All" ? "Semua" : filter}
@@ -318,10 +318,10 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="glass-effect rounded-2xl overflow-hidden border border-slate-800/40 flex flex-col hover:border-indigo-500/30 group transition-all duration-300 transform hover:-translate-y-1"
+              className="glass-effect rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/30 group transition-all duration-300 transform hover:-translate-y-1 animate-fade-in"
             >
               {/* Interactive Mockup Container */}
-              <div className="h-56 relative w-full border-b border-slate-800/40 overflow-hidden">
+              <div className="h-56 relative w-full border-b border-slate-200 dark:border-slate-800/40 overflow-hidden">
                 <ProjectMockup id={project.id} />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-all duration-300">
@@ -352,25 +352,25 @@ export default function Projects() {
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Category Tag */}
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-indigo-400 px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/20">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/20">
                     {project.category}
                   </span>
                   {/* Title */}
-                  <h3 className="font-heading font-bold text-xl text-white mt-3 mb-2 tracking-wide">
+                  <h3 className="font-heading font-bold text-xl text-text-primary mt-3 mb-2 tracking-wide">
                     {project.title}
                   </h3>
                   {/* Description */}
-                  <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                  <p className="text-sm text-text-secondary leading-relaxed mb-6">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-900/60">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-900/60">
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="text-[10px] text-slate-400 bg-slate-950 border border-slate-900 px-2 py-1 rounded-md"
+                      className="text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-1 rounded-md"
                     >
                       {tag}
                     </span>

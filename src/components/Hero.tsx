@@ -48,7 +48,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-12 overflow-hidden border-b border-slate-900/40"
+      className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-12 overflow-hidden border-b border-slate-200 dark:border-slate-900/40"
     >
       {/* Background Ambient Glows */}
       <div className="glow-bg glow-indigo -top-20 -left-20"></div>
@@ -58,28 +58,28 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 max-w-4xl text-center flex flex-col items-center">
         {/* Availability Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-8 animate-pulse">
-          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-650 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-8 animate-pulse">
+          <span className="w-2 h-2 rounded-full bg-indigo-500 dark:bg-indigo-400"></span>
           Tersedia Untuk Projek Freelance / Fulltime
         </div>
 
         {/* Headline */}
-        <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-none mb-6">
+        <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-text-primary tracking-tight leading-none mb-6">
           Hai, Saya <span className="text-gradient font-black">{personalInfo.name}</span>
         </h1>
 
         {/* Dynamic Typing Subtitle */}
         <div className="h-12 flex items-center justify-center mb-6">
-          <p className="font-heading font-medium text-lg sm:text-2xl lg:text-3xl text-slate-300">
+          <p className="font-heading font-medium text-lg sm:text-2xl lg:text-3xl text-text-secondary">
             Seorang{" "}
-            <span className="text-indigo-400 border-r-2 border-indigo-400 pr-1 animate-pulse font-bold">
+            <span className="text-indigo-600 dark:text-indigo-400 border-r-2 border-indigo-600 dark:border-indigo-400 pr-1 animate-pulse font-bold">
               {currentText}
             </span>
           </p>
         </div>
 
         {/* Description */}
-        <p className="text-slate-400 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed mb-10">
+        <p className="text-text-secondary text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed mb-10">
           {personalInfo.bio}
         </p>
 
@@ -94,7 +94,7 @@ export default function Hero() {
           </button>
           <button
             onClick={() => handleScrollTo("contact")}
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500 text-slate-300 hover:text-white font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-text-secondary hover:text-indigo-600 dark:hover:text-white font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
           >
             Hubungi Saya
             <Send className="w-4 h-4" />

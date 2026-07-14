@@ -5,10 +5,16 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-deep text-slate-100">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-deep text-text-primary">
+      {/* Floating Theme Toggle (Top Right) */}
+      <div className="fixed top-6 right-6 z-50">
+        <ThemeToggle />
+      </div>
+
       {/* Sidebar Navigation */}
       <Sidebar />
 

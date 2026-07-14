@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="id"
       className={`${outfit.variable} ${inter.variable} scroll-smooth antialiased`}
     >
-      <body className="bg-slate-950 text-slate-100 min-h-screen font-sans">
+      <body className="bg-deep text-text-primary min-h-screen font-sans">
         {children}
       </body>
     </html>

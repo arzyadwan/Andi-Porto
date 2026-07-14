@@ -130,6 +130,15 @@ export default function ThreeBackground() {
       camera.position.y = -mouseY * 2;
       camera.lookAt(scene.position);
 
+      // Dynamic theme adaptation
+      const isDark = document.documentElement.classList.contains("dark");
+      material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+      material.opacity = isDark ? 0.6 : 0.45;
+      material.needsUpdate = true;
+      if (containerRef.current) {
+        containerRef.current.style.mixBlendMode = isDark ? "screen" : "multiply";
+      }
+
       renderer.render(scene, camera);
       animationFrameId = requestAnimationFrame(animate);
     };
