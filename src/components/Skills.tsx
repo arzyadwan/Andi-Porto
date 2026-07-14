@@ -9,7 +9,6 @@ export default function Skills() {
   const [animate, setAnimate] = useState(false);
   const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const gridRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  // Separate observer for progress bars - fires when section is in view
   const progressTriggerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -43,7 +42,7 @@ export default function Skills() {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
         <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
-          <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">
+          <span className="text-xs uppercase tracking-widest text-indigo-500 font-semibold mb-2">
             Keahlian
           </span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
@@ -55,7 +54,6 @@ export default function Skills() {
         {/* Categories Grid */}
         <div
           ref={(node) => {
-            // Attach both refs to the same element
             (gridRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
             progressTriggerRef.current = node;
           }}
@@ -66,7 +64,7 @@ export default function Skills() {
             return (
               <div
                 key={index}
-                className="scroll-zoom-in glass-effect p-8 rounded-2xl border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/20 transition-all duration-300"
+                className="scroll-zoom-in glass-effect p-8 rounded-2xl border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/40 hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-300"
               >
                 {/* Category Header */}
                 <div className="flex items-center gap-4 mb-8">
@@ -91,8 +89,8 @@ export default function Skills() {
                         </span>
                       </div>
 
-                      {/* Progress Bar Container */}
-                      <div className="h-2 w-full bg-slate-200 dark:bg-slate-950 rounded-full overflow-hidden border border-slate-300/30 dark:border-slate-900">
+                      {/* Progress Bar Container — track bg is visible in both modes */}
+                      <div className="h-2 w-full bg-slate-300 dark:bg-slate-800 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
                           style={{

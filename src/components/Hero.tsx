@@ -94,7 +94,7 @@ export default function Hero() {
           </button>
           <button
             onClick={() => handleScrollTo("contact")}
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-text-secondary hover:text-indigo-600 dark:hover:text-white font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
           >
             Hubungi Saya
             <Send className="w-4 h-4" />

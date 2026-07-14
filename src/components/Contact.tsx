@@ -26,8 +26,6 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Mock API Submit call
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -46,7 +44,7 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
         <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
-          <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">Kontak</span>
+          <span className="text-xs uppercase tracking-widest text-indigo-500 font-semibold mb-2">Kontak</span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
             Hubungi Saya
           </h2>
@@ -67,29 +65,31 @@ export default function Contact() {
             </div>
 
             {/* List of contact links */}
-            <div className="space-y-6 my-8">
+            <div className="space-y-4 my-4">
+              {/* Email */}
               <div className="flex items-center gap-4 group">
-                <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-indigo-500 dark:text-indigo-400 group-hover:border-indigo-500 group-hover:text-white transition-all">
+                <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-indigo-500 group-hover:bg-indigo-600 group-hover:border-indigo-600 group-hover:text-white transition-all duration-300">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-400 dark:text-slate-500 font-medium block uppercase tracking-wider">Email</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold block uppercase tracking-wider mb-0.5">Email</span>
                   <a
                     href={`mailto:${personalInfo.socials.email}`}
-                    className="text-sm font-semibold text-text-secondary hover:text-indigo-600 dark:hover:text-white transition-colors"
+                    className="text-sm font-semibold text-text-primary hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >
                     {personalInfo.socials.email}
                   </a>
                 </div>
               </div>
 
+              {/* Location */}
               <div className="flex items-center gap-4 group">
-                <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-indigo-500 dark:text-indigo-400 group-hover:border-indigo-500 group-hover:text-white transition-all">
+                <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-indigo-500 group-hover:bg-indigo-600 group-hover:border-indigo-600 group-hover:text-white transition-all duration-300">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-400 dark:text-slate-500 font-medium block uppercase tracking-wider">Lokasi</span>
-                  <span className="text-sm font-semibold text-text-secondary">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold block uppercase tracking-wider mb-0.5">Lokasi</span>
+                  <span className="text-sm font-semibold text-text-primary">
                     Jakarta, Indonesia
                   </span>
                 </div>
@@ -97,12 +97,12 @@ export default function Contact() {
             </div>
 
             {/* Availability Indicator */}
-            <div className="p-4 rounded-2xl bg-indigo-500/5 border border-indigo-500/10 flex items-center gap-4">
-              <span className="relative flex h-3 w-3">
+            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-500/5 border border-emerald-200 dark:border-emerald-500/20 flex items-center gap-4">
+              <span className="relative flex h-3 w-3 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
               </span>
-              <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-300">
+              <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-300">
                 Membalas email Anda dalam kurun waktu 24 jam.
               </span>
             </div>
@@ -113,8 +113,8 @@ export default function Contact() {
             <div className="glass-effect p-8 rounded-3xl border border-slate-200 dark:border-slate-800/40 relative">
               {isSubmitted ? (
                 /* Success Message */
-                <div className="flex flex-col items-center justify-center py-12 text-center space-y-4 animate-fade-in">
-                  <div className="p-4 bg-emerald-500/10 text-emerald-650 dark:text-emerald-400 rounded-full border border-emerald-500/20">
+                <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
+                  <div className="p-4 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full border border-emerald-500/20">
                     <CheckCircle2 className="w-12 h-12 animate-bounce" />
                   </div>
                   <h3 className="font-heading font-bold text-2xl text-text-primary">
@@ -125,18 +125,18 @@ export default function Contact() {
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="mt-6 px-6 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-text-secondary hover:text-text-primary text-xs font-semibold transition-all cursor-pointer"
+                    className="mt-6 px-6 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-text-secondary hover:text-indigo-600 dark:hover:text-white text-xs font-semibold transition-all cursor-pointer"
                   >
                     Kirim Pesan Baru
                   </button>
                 </div>
               ) : (
                 /* Main Form */
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Name and Email row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label htmlFor="name" className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                         Nama Lengkap
                       </label>
                       <input
@@ -147,12 +147,12 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Budi"
-                        className="w-full bg-slate-100 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-900 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-300 dark:border-slate-800 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 transition-all"
                       />
                     </div>
 
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
+                    <div className="space-y-1.5">
+                      <label htmlFor="email" className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                         Alamat Email
                       </label>
                       <input
@@ -163,14 +163,14 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="budi@example.com"
-                        className="w-full bg-slate-100 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-900 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors"
+                        className="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-300 dark:border-slate-800 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 transition-all"
                       />
                     </div>
                   </div>
 
                   {/* Subject */}
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
+                  <div className="space-y-1.5">
+                    <label htmlFor="subject" className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                       Subjek Pesan
                     </label>
                     <input
@@ -181,13 +181,13 @@ export default function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Penawaran Kolaborasi Projek"
-                      className="w-full bg-slate-100 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-900 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors"
+                      className="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-300 dark:border-slate-800 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 transition-all"
                     />
                   </div>
 
                   {/* Message */}
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-xs font-semibold text-text-secondary uppercase tracking-wider">
+                  <div className="space-y-1.5">
+                    <label htmlFor="message" className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                       Isi Pesan
                     </label>
                     <textarea
@@ -198,7 +198,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tuliskan detail ide Anda di sini..."
-                      className="w-full bg-slate-100 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-900 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                      className="w-full bg-slate-50 dark:bg-slate-950/80 border border-slate-300 dark:border-slate-800 rounded-xl px-4 py-3 text-sm text-text-primary placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 transition-all resize-none"
                     ></textarea>
                   </div>
 
@@ -206,7 +206,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-750 text-white font-bold tracking-wide transition-all shadow-lg shadow-indigo-600/20 cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold tracking-wide transition-all shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/40 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

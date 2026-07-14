@@ -119,7 +119,7 @@ export default function Sidebar() {
               href={personalInfo.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-white transition-all cursor-pointer text-text-secondary"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all cursor-pointer text-slate-600 dark:text-slate-400"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
@@ -127,7 +127,7 @@ export default function Sidebar() {
               href={personalInfo.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-white transition-all cursor-pointer text-text-secondary"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all cursor-pointer text-slate-600 dark:text-slate-400"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
@@ -136,13 +136,13 @@ export default function Sidebar() {
                 href={personalInfo.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-white transition-all cursor-pointer text-text-secondary"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/40 hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all cursor-pointer text-slate-600 dark:text-slate-400"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
             )}
           </div>
-          <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">© {new Date().getFullYear()} Andi Arzatwan</p>
+          <p className="text-[10px] text-slate-400 font-medium">© {new Date().getFullYear()} Andi Arzatwan</p>
         </div>
       </aside>
 
@@ -156,7 +156,9 @@ export default function Sidebar() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all cursor-pointer ${
-                isActive ? "text-indigo-600 dark:text-indigo-400 scale-110" : "text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white"
+                isActive
+                  ? "text-indigo-600 dark:text-indigo-400 scale-110"
+                  : "text-slate-500 hover:text-indigo-600 dark:hover:text-white"
               }`}
             >
               <Icon className="w-5 h-5" />
