@@ -1,16 +1,30 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { skillCategories } from "../data/portfolioData";
 import { Laptop, Database, PenTool } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Skills() {
   const [animate, setAnimate] = useState(false);
+  const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const gridRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  // Separate observer for progress bars - fires when section is in view
+  const progressTriggerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Trigger animation slightly after mounting
-    const timer = setTimeout(() => setAnimate(true), 200);
-    return () => clearTimeout(timer);
+    if (!progressTriggerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimate(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(progressTriggerRef.current);
+    return () => observer.disconnect();
   }, []);
 
   const getCategoryIcon = (title: string) => {
@@ -22,28 +36,37 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24 px-4 md:px-12 border-b border-slate-900/40"
+      className="relative py-24 px-4 md:px-12 border-b border-slate-200 dark:border-slate-900/40"
     >
       <div className="glow-bg glow-indigo top-20 right-20"></div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
-        <div className="flex flex-col mb-16">
-          <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">Keahlian</span>
+        <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
+          <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">
+            Keahlian
+          </span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
-            Senjata & Teknologi
+            Senjata &amp; Teknologi
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
+          <div className="section-line w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div
+          ref={(node) => {
+            // Attach both refs to the same element
+            (gridRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+            progressTriggerRef.current = node;
+          }}
+          className="scroll-fade-up grid grid-cols-1 lg:grid-cols-3 gap-8 stagger-children"
+        >
           {skillCategories.map((category, index) => {
             const Icon = getCategoryIcon(category.title);
             return (
               <div
                 key={index}
-                className="glass-effect p-8 rounded-2xl border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/20 transition-all duration-300"
+                className="scroll-zoom-in glass-effect p-8 rounded-2xl border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/20 transition-all duration-300"
               >
                 {/* Category Header */}
                 <div className="flex items-center gap-4 mb-8">
@@ -60,16 +83,21 @@ export default function Skills() {
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="font-medium text-text-secondary">{skill.name}</span>
-                        <span className="text-indigo-600 dark:text-indigo-400 font-semibold text-xs">{skill.level}%</span>
+                        <span className="font-medium text-text-secondary">
+                          {skill.name}
+                        </span>
+                        <span className="text-indigo-600 dark:text-indigo-400 font-semibold text-xs">
+                          {skill.level}%
+                        </span>
                       </div>
-                      
+
                       {/* Progress Bar Container */}
                       <div className="h-2 w-full bg-slate-200 dark:bg-slate-950 rounded-full overflow-hidden border border-slate-300/30 dark:border-slate-900">
                         <div
                           className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
                           style={{
                             width: animate ? `${skill.level}%` : "0%",
+                            transitionDelay: `${skillIndex * 80}ms`,
                           }}
                         ></div>
                       </div>

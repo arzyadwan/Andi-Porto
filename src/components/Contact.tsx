@@ -3,8 +3,12 @@
 import React, { useState } from "react";
 import { personalInfo } from "../data/portfolioData";
 import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Contact() {
+  const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const leftRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const rightRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,18 +45,18 @@ export default function Contact() {
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
-        <div className="flex flex-col mb-16">
+        <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
           <span className="text-xs uppercase tracking-widest text-indigo-505 dark:text-indigo-400 font-semibold mb-2">Kontak</span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
             Hubungi Saya
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
+          <div className="section-line w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
         </div>
 
         {/* 2 Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Contact Details (Left) */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-8">
+          <div ref={leftRef} className="scroll-fade-left lg:col-span-5 flex flex-col justify-between gap-8">
             <div className="space-y-6">
               <h3 className="font-heading font-bold text-xl text-text-primary tracking-wide">
                 Mari Berkolaborasi!
@@ -102,7 +106,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form (Right) */}
-          <div className="lg:col-span-7">
+          <div ref={rightRef} className="scroll-fade-right lg:col-span-7">
             <div className="glass-effect p-8 rounded-3xl border border-slate-200 dark:border-slate-800/40 relative">
               {isSubmitted ? (
                 /* Success Message */

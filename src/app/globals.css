@@ -121,3 +121,154 @@ html, body {
 .glow-blue {
   background: #3b82f6;
 }
+
+/* ============================================
+   SCROLL-TRIGGERED ANIMATION SYSTEM
+   ============================================ */
+
+/* --- Keyframes --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* --- Base: elements start invisible --- */
+.scroll-fade-up,
+.scroll-fade-left,
+.scroll-fade-right,
+.scroll-zoom-in,
+.scroll-fade-down {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+/* --- Triggered when IntersectionObserver sets data-visible="true" --- */
+.scroll-fade-up[data-visible="true"] {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-fade-down[data-visible="true"] {
+  animation: fadeDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-fade-left[data-visible="true"] {
+  animation: fadeLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-fade-right[data-visible="true"] {
+  animation: fadeRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-zoom-in[data-visible="true"] {
+  animation: zoomIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --- Stagger helpers (applies animation-delay to child items) --- */
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 480ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 560ms; }
+
+/* --- Delay utilities --- */
+.anim-delay-100 { animation-delay: 100ms !important; }
+.anim-delay-200 { animation-delay: 200ms !important; }
+.anim-delay-300 { animation-delay: 300ms !important; }
+.anim-delay-400 { animation-delay: 400ms !important; }
+.anim-delay-500 { animation-delay: 500ms !important; }
+
+/* --- Section title underline grow --- */
+.section-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+[data-visible="true"] .section-line,
+.section-line[data-visible="true"] {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   HERO LOAD ANIMATIONS (no observer needed)
+   Always fires on initial page load.
+   ============================================ */
+.hero-anim-up {
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+.hero-anim-down {
+  animation: fadeDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+/* Stagger delays for hero elements */
+.hero-anim-up.delay-2,
+.hero-anim-down.delay-2 { animation-delay: 0.2s; }
+.hero-anim-up.delay-3,
+.hero-anim-down.delay-3 { animation-delay: 0.35s; }
+.hero-anim-up.delay-4,
+.hero-anim-down.delay-4 { animation-delay: 0.5s; }
+.hero-anim-up.delay-5,
+.hero-anim-down.delay-5 { animation-delay: 0.65s; }

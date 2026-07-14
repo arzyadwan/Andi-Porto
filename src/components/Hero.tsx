@@ -58,18 +58,18 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 max-w-4xl text-center flex flex-col items-center">
         {/* Availability Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-650 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-8 animate-pulse">
+        <div className="hero-anim-down inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-650 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-8 animate-pulse">
           <span className="w-2 h-2 rounded-full bg-indigo-500 dark:bg-indigo-400"></span>
           Tersedia Untuk Projek Freelance / Fulltime
         </div>
 
         {/* Headline */}
-        <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-text-primary tracking-tight leading-none mb-6">
+        <h1 className="hero-anim-up delay-2 font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl text-text-primary tracking-tight leading-none mb-6">
           Hai, Saya <span className="text-gradient font-black">{personalInfo.name}</span>
         </h1>
 
         {/* Dynamic Typing Subtitle */}
-        <div className="h-12 flex items-center justify-center mb-6">
+        <div className="hero-anim-up delay-3 h-12 flex items-center justify-center mb-6">
           <p className="font-heading font-medium text-lg sm:text-2xl lg:text-3xl text-text-secondary">
             Seorang{" "}
             <span className="text-indigo-600 dark:text-indigo-400 border-r-2 border-indigo-600 dark:border-indigo-400 pr-1 animate-pulse font-bold">
@@ -79,12 +79,12 @@ export default function Hero() {
         </div>
 
         {/* Description */}
-        <p className="text-text-secondary text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed mb-10">
+        <p className="hero-anim-up delay-4 text-text-secondary text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed mb-10">
           {personalInfo.bio}
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md">
+        <div className="hero-anim-up delay-5 flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md">
           <button
             onClick={() => handleScrollTo("projects")}
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold tracking-wide transition-all duration-300 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/40 transform hover:-translate-y-0.5 cursor-pointer"
