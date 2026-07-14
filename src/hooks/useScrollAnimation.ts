@@ -1,4 +1,4 @@
-import { useEffect, useRef, RefObject } from "react";
+import { useCallback, useRef } from "react";
 
 interface UseScrollAnimationOptions {
   threshold?: number;
@@ -8,36 +8,43 @@ interface UseScrollAnimationOptions {
 
 /**
  * Reusable hook for scroll-triggered animations.
- * Attaches an IntersectionObserver to the returned ref.
+ * Returns a callback ref to safely observe DOM mounting/unmounting.
  * When the element enters the viewport, `data-visible="true"` is set.
  * Pair with CSS [data-visible="true"] selectors to trigger animations.
  */
 export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
   options: UseScrollAnimationOptions = {}
-): RefObject<T | null> {
+): (node: T | null) => void {
   const { threshold = 0.15, rootMargin = "0px 0px -60px 0px", once = true } =
     options;
-  const ref = useRef<T | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+  const refCallback = useCallback(
+    (node: T | null) => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          element.dataset.visible = "true";
-          if (once) observer.unobserve(element);
-        } else if (!once) {
-          element.dataset.visible = "false";
-        }
-      },
-      { threshold, rootMargin }
-    );
+      if (node) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              node.dataset.visible = "true";
+              if (once) observer.unobserve(node);
+            } else if (!once) {
+              node.dataset.visible = "false";
+            }
+          },
+          { threshold, rootMargin }
+        );
 
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [threshold, rootMargin, once]);
+        observer.observe(node);
+        observerRef.current = observer;
+      }
+    },
+    [threshold, rootMargin, once]
+  );
 
-  return ref;
+  return refCallback;
 }

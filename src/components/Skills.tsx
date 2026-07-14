@@ -54,7 +54,7 @@ export default function Skills() {
         {/* Categories Grid */}
         <div
           ref={(node) => {
-            (gridRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+            gridRef(node);
             progressTriggerRef.current = node;
           }}
           className="scroll-fade-up grid grid-cols-1 lg:grid-cols-3 gap-8 stagger-children"
