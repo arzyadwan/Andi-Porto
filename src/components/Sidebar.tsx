@@ -87,7 +87,7 @@ export default function Sidebar() {
             </div>
           </div>
           <h2 className="font-heading font-bold text-xl text-text-primary tracking-wide">{personalInfo.name}</h2>
-          <p className="text-xs text-indigo-500 dark:text-indigo-400 font-medium tracking-wider uppercase mt-1">{personalInfo.title}</p>
+          <p className="text-xs text-indigo-500 font-medium tracking-wider uppercase mt-1">{personalInfo.title}</p>
         </div>
 
         {/* Navigation Menu */}
@@ -147,7 +147,7 @@ export default function Sidebar() {
       </aside>
 
       {/* Mobile Sticky Navigation (Bottom overlay, visible only on mobile/tablet) */}
-      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] h-16 glass-effect border border-slate-200 dark:border-slate-800/50 rounded-2xl flex items-center justify-around px-4 py-2 z-50 shadow-lg dark:shadow-2xl shadow-indigo-950/10 dark:shadow-black/50">
+      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] h-16 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800/50 rounded-2xl flex items-center justify-around px-4 py-2 z-50 shadow-lg shadow-slate-200/80 dark:shadow-black/50">
         {menuItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;

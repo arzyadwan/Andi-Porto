@@ -46,7 +46,7 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
         <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
-          <span className="text-xs uppercase tracking-widest text-indigo-505 dark:text-indigo-400 font-semibold mb-2">Kontak</span>
+          <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">Kontak</span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
             Hubungi Saya
           </h2>
@@ -98,7 +98,10 @@ export default function Contact() {
 
             {/* Availability Indicator */}
             <div className="p-4 rounded-2xl bg-indigo-500/5 border border-indigo-500/10 flex items-center gap-4">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </span>
               <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-300">
                 Membalas email Anda dalam kurun waktu 24 jam.
               </span>

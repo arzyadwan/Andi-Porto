@@ -345,12 +345,12 @@ export default function Projects() {
               <div className="h-56 relative w-full border-b border-slate-200 dark:border-slate-800/40 overflow-hidden">
                 <ProjectMockup id={project.id} />
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-all duration-300">
+                <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-all duration-300 backdrop-blur-sm">
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-slate-900 border border-slate-800 hover:border-indigo-500 text-slate-300 hover:text-white hover:scale-110 transition-all cursor-pointer"
+                    className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:scale-110 transition-all cursor-pointer"
                     title="View Source Code"
                   >
                     <GithubIcon className="w-5 h-5" />
@@ -360,7 +360,7 @@ export default function Projects() {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-slate-900 border border-slate-800 hover:border-indigo-500 text-slate-300 hover:text-white hover:scale-110 transition-all cursor-pointer"
+                      className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:scale-110 transition-all cursor-pointer"
                       title="View Live Demo"
                     >
                       <ExternalLink className="w-5 h-5" />
