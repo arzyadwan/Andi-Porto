@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -32,7 +34,20 @@ export default function RootLayout({
       className={`${outfit.variable} ${inter.variable} scroll-smooth antialiased`}
     >
       <body className="bg-deep text-text-primary min-h-screen font-sans">
-        {children}
+        <div className="flex flex-col lg:flex-row min-h-screen bg-deep text-text-primary">
+          {/* Floating Theme Toggle (Top Right) */}
+          <div className="fixed top-6 right-6 z-50">
+            <ThemeToggle />
+          </div>
+
+          {/* Sidebar Navigation */}
+          <Sidebar />
+
+          {/* Main Content Area (offset by sidebar width on desktop) */}
+          <main className="flex-1 lg:pl-[280px] min-h-screen flex flex-col bg-gradient-to-b from-deep via-dark-base to-deep">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );

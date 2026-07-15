@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { projectsData, Project } from "../data/portfolioData";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Layers } from "lucide-react";
+import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -338,11 +339,18 @@ export default function Projects() {
                 <ProjectMockup id={project.id} />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-all duration-300 backdrop-blur-sm">
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-indigo-505 dark:hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:scale-110 transition-all cursor-pointer"
+                    title="Lihat Detail Projek"
+                  >
+                    <Layers className="w-5 h-5" />
+                  </Link>
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:scale-110 transition-all cursor-pointer"
+                    className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-indigo-505 dark:hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:scale-110 transition-all cursor-pointer"
                     title="View Source Code"
                   >
                     <GithubIcon className="w-5 h-5" />
@@ -352,7 +360,7 @@ export default function Projects() {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:scale-110 transition-all cursor-pointer"
+                      className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-indigo-505 dark:hover:border-indigo-500 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:scale-110 transition-all cursor-pointer"
                       title="View Live Demo"
                     >
                       <ExternalLink className="w-5 h-5" />
@@ -373,9 +381,17 @@ export default function Projects() {
                     {project.title}
                   </h3>
                   {/* Description */}
-                  <p className="text-sm text-text-secondary leading-relaxed mb-6">
+                  <p className="text-sm text-text-secondary leading-relaxed mb-2">
                     {project.description}
                   </p>
+                  
+                  {/* Detail link */}
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors mt-2 mb-4 cursor-pointer"
+                  >
+                    Lihat Detail Projek →
+                  </Link>
                 </div>
 
                 {/* Tech Tags */}

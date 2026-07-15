@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { personalInfo } from "../data/portfolioData";
 import { Home, User, Cpu, FolderGit2, Briefcase, Mail } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -31,47 +33,28 @@ const InstagramIcon = ({ className }: { className?: string }) => (
 interface MenuItem {
   id: string;
   label: string;
+  href: string;
   icon: React.ComponentType<{ className?: string }>;
 }
 
 const menuItems: MenuItem[] = [
-  { id: "home", label: "Home", icon: Home },
-  { id: "about", label: "About", icon: User },
-  { id: "skills", label: "Skills", icon: Cpu },
-  { id: "projects", label: "Projects", icon: FolderGit2 },
-  { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "contact", label: "Contact", icon: Mail },
+  { id: "home", label: "Home", href: "/", icon: Home },
+  { id: "about", label: "About", href: "/about", icon: User },
+  { id: "skills", label: "Skills", href: "/skills", icon: Cpu },
+  { id: "projects", label: "Projects", href: "/projects", icon: FolderGit2 },
+  { id: "experience", label: "Experience", href: "/experience", icon: Briefcase },
+  { id: "contact", label: "Contact", href: "/contact", icon: Mail },
 ];
 
 export default function Sidebar() {
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200; // Offset for better detection
-
-      for (const item of menuItems) {
-        const element = document.getElementById(item.id);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(item.id);
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(id);
+  // Helper to determine if a menu item is active
+  const isItemActive = (item: MenuItem) => {
+    if (item.href === "/") {
+      return pathname === "/";
     }
+    return pathname.startsWith(item.href);
   };
 
   return (
@@ -94,11 +77,11 @@ export default function Sidebar() {
         <nav className="flex flex-col gap-2 my-8">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeSection === item.id;
+            const isActive = isItemActive(item);
             return (
-              <button
+              <Link
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                href={item.href}
                 className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group cursor-pointer text-left ${
                   isActive
                     ? "bg-indigo-600/10 dark:bg-indigo-600/15 text-indigo-600 dark:text-indigo-400 font-semibold border-l-2 border-indigo-500"
@@ -107,7 +90,7 @@ export default function Sidebar() {
               >
                 <Icon className={`w-5 h-5 transition-transform duration-300 ${isActive ? "scale-110" : "group-hover:scale-110"}`} />
                 <span className="text-sm tracking-wide">{item.label}</span>
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -150,11 +133,11 @@ export default function Sidebar() {
       <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] h-16 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800/50 rounded-2xl flex items-center justify-around px-4 py-2 z-50 shadow-lg shadow-slate-200/80 dark:shadow-black/50">
         {menuItems.map((item) => {
           const Icon = item.icon;
-          const isActive = activeSection === item.id;
+          const isActive = isItemActive(item);
           return (
-            <button
+            <Link
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
+              href={item.href}
               className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all cursor-pointer ${
                 isActive
                   ? "text-indigo-600 dark:text-indigo-400 scale-110"
@@ -163,7 +146,7 @@ export default function Sidebar() {
             >
               <Icon className="w-5 h-5" />
               <span className="text-[9px] mt-0.5 tracking-wider">{item.label}</span>
-            </button>
+            </Link>
           );
         })}
       </div>
