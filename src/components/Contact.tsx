@@ -6,9 +6,9 @@ import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Contact() {
-  const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-  const leftRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const rightRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [leftRef, leftVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [rightRef, rightVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,7 +43,11 @@ export default function Contact() {
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
-        <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
+        <div
+          ref={titleRef}
+          data-visible={titleVisible ? "true" : undefined}
+          className="scroll-fade-up flex flex-col mb-16"
+        >
           <span className="text-xs uppercase tracking-widest text-indigo-500 font-semibold mb-2">Kontak</span>
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
             Hubungi Saya
@@ -54,7 +58,11 @@ export default function Contact() {
         {/* 2 Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Contact Details (Left) */}
-          <div ref={leftRef} className="scroll-fade-left lg:col-span-5 flex flex-col justify-between gap-8">
+          <div
+            ref={leftRef}
+            data-visible={leftVisible ? "true" : undefined}
+            className="scroll-fade-left lg:col-span-5 flex flex-col justify-between gap-8"
+          >
             <div className="space-y-6">
               <h3 className="font-heading font-bold text-xl text-text-primary tracking-wide">
                 Mari Berkolaborasi!
@@ -109,7 +117,11 @@ export default function Contact() {
           </div>
 
           {/* Contact Form (Right) */}
-          <div ref={rightRef} className="scroll-fade-right lg:col-span-7">
+          <div
+            ref={rightRef}
+            data-visible={rightVisible ? "true" : undefined}
+            className="scroll-fade-right lg:col-span-7"
+          >
             <div className="glass-effect p-8 rounded-3xl border border-slate-200 dark:border-slate-800/40 relative">
               {isSubmitted ? (
                 /* Success Message */

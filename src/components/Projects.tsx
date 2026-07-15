@@ -272,8 +272,8 @@ function ProjectMockup({ id }: { id: string }) {
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<Project["category"] | "All">("All");
-  const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-  const cardsRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
 
   const filteredProjects = projectsData.filter((project) => {
     if (activeFilter === "All") return true;
@@ -290,7 +290,11 @@ export default function Projects() {
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div ref={titleRef} className="scroll-fade-up flex flex-col">
+          <div
+            ref={titleRef}
+            data-visible={titleVisible ? "true" : undefined}
+            className="scroll-fade-up flex flex-col"
+          >
             <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">Portofolio</span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
               Projek Pilihan Saya
@@ -317,7 +321,11 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div ref={cardsRef} className="scroll-fade-up grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          ref={cardsRef}
+          data-visible={cardsVisible ? "true" : undefined}
+          className="scroll-fade-up grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {filteredProjects.map((project, idx) => (
             <div
               key={project.id}

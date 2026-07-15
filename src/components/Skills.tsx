@@ -6,25 +6,8 @@ import { Laptop, Database, PenTool } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Skills() {
-  const [animate, setAnimate] = useState(false);
-  const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-  const gridRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const progressTriggerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!progressTriggerRef.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimate(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    observer.observe(progressTriggerRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   const getCategoryIcon = (title: string) => {
     if (title.includes("Frontend")) return Laptop;
@@ -41,7 +24,11 @@ export default function Skills() {
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
-        <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
+        <div
+          ref={titleRef}
+          data-visible={titleVisible ? "true" : undefined}
+          className="scroll-fade-up flex flex-col mb-16"
+        >
           <span className="text-xs uppercase tracking-widest text-indigo-500 font-semibold mb-2">
             Keahlian
           </span>
@@ -53,10 +40,8 @@ export default function Skills() {
 
         {/* Categories Grid */}
         <div
-          ref={(node) => {
-            gridRef(node);
-            progressTriggerRef.current = node;
-          }}
+          ref={gridRef}
+          data-visible={gridVisible ? "true" : undefined}
           className="scroll-fade-up grid grid-cols-1 lg:grid-cols-3 gap-8 stagger-children"
         >
           {skillCategories.map((category, index) => {
@@ -94,7 +79,7 @@ export default function Skills() {
                         <div
                           className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
                           style={{
-                            width: animate ? `${skill.level}%` : "0%",
+                            width: gridVisible ? `${skill.level}%` : "0%",
                             transitionDelay: `${skillIndex * 80}ms`,
                           }}
                         ></div>

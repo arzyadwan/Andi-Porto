@@ -6,10 +6,10 @@ import { Award, FolderCheck, Users, Code2, GraduationCap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function About() {
-  const sectionRef = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
-  const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-  const textRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.15 });
-  const statsRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [sectionRef, sectionVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [textRef, textVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.15 });
+  const [statsRef, statsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   const getIcon = (label: string) => {
     if (label.includes("Tahun")) return Award;
@@ -21,13 +21,18 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
+      data-visible={sectionVisible ? "true" : undefined}
       className="relative py-24 px-4 md:px-12 border-b border-slate-200 dark:border-slate-900/40"
     >
       <div className="glow-bg glow-purple -bottom-20 -left-20"></div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
-        <div ref={titleRef} className="scroll-fade-up flex flex-col mb-12">
+        <div
+          ref={titleRef}
+          data-visible={titleVisible ? "true" : undefined}
+          className="scroll-fade-up flex flex-col mb-12"
+        >
           <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">
             Tentang Saya
           </span>
@@ -42,6 +47,7 @@ export default function About() {
           {/* Narrative Story (Left) */}
           <div
             ref={textRef}
+            data-visible={textVisible ? "true" : undefined}
             className="scroll-fade-left md:col-span-7 space-y-6 text-text-secondary leading-relaxed text-sm sm:text-base"
           >
             <p>
@@ -89,6 +95,7 @@ export default function About() {
           {/* Stats Cards (Right) */}
           <div
             ref={statsRef}
+            data-visible={statsVisible ? "true" : undefined}
             className="scroll-fade-right md:col-span-5 grid grid-cols-1 gap-6 stagger-children"
           >
             {personalInfo.stats.map((stat, i) => {

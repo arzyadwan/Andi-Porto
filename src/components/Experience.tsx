@@ -13,7 +13,7 @@ function TimelineItem({
   item: (typeof experienceTimeline)[number];
   delay: number;
 }) {
-  const itemRef = useScrollAnimation<HTMLDivElement>({
+  const [itemRef, itemVisible] = useScrollAnimation<HTMLDivElement>({
     threshold: 0.15,
     rootMargin: "0px 0px -40px 0px",
   });
@@ -22,6 +22,7 @@ function TimelineItem({
   return (
     <div
       ref={itemRef}
+      data-visible={itemVisible ? "true" : undefined}
       className="scroll-fade-left relative pl-8 md:pl-10 group"
       style={{ animationDelay: `${delay}ms` }}
     >
@@ -78,7 +79,7 @@ function TimelineItem({
 }
 
 export default function Experience() {
-  const titleRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
   return (
     <section
@@ -89,7 +90,11 @@ export default function Experience() {
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
-        <div ref={titleRef} className="scroll-fade-up flex flex-col mb-16">
+        <div
+          ref={titleRef}
+          data-visible={titleVisible ? "true" : undefined}
+          className="scroll-fade-up flex flex-col mb-16"
+        >
           <span className="text-xs uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-semibold mb-2">
             Riwayat
           </span>

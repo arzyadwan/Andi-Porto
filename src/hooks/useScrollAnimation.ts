@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 
 interface UseScrollAnimationOptions {
   threshold?: number;
@@ -8,15 +8,16 @@ interface UseScrollAnimationOptions {
 
 /**
  * Reusable hook for scroll-triggered animations.
- * Returns a callback ref to safely observe DOM mounting/unmounting.
- * When the element enters the viewport, `data-visible="true"` is set.
- * Pair with CSS [data-visible="true"] selectors to trigger animations.
+ * Returns a tuple containing:
+ * 1. A callback ref function to attach to the element.
+ * 2. A boolean indicating whether the element is visible.
  */
 export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
   options: UseScrollAnimationOptions = {}
-): (node: T | null) => void {
+): readonly [(node: T | null) => void, boolean] {
   const { threshold = 0.15, rootMargin = "0px 0px -60px 0px", once = true } =
     options;
+  const [isVisible, setIsVisible] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const refCallback = useCallback(
@@ -27,13 +28,18 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
       }
 
       if (node) {
+        // If once is true and it's already visible, skip re-observing
+        if (once && isVisible) {
+          return;
+        }
+
         const observer = new IntersectionObserver(
           ([entry]) => {
             if (entry.isIntersecting) {
-              node.dataset.visible = "true";
+              setIsVisible(true);
               if (once) observer.unobserve(node);
             } else if (!once) {
-              node.dataset.visible = "false";
+              setIsVisible(false);
             }
           },
           { threshold, rootMargin }
@@ -43,8 +49,16 @@ export function useScrollAnimation<T extends HTMLElement = HTMLElement>(
         observerRef.current = observer;
       }
     },
-    [threshold, rootMargin, once]
+    [threshold, rootMargin, once, isVisible]
   );
 
-  return refCallback;
+  useEffect(() => {
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  return [refCallback, isVisible] as const;
 }
