@@ -103,6 +103,7 @@ export default function About() {
               return (
                 <div
                   key={i}
+                  data-visible={statsVisible ? "true" : undefined}
                   className="scroll-zoom-in glass-effect p-6 rounded-2xl border border-slate-200 dark:border-slate-800/40 flex items-center gap-6 hover:border-indigo-500/40 hover:bg-slate-200/40 dark:hover:bg-slate-900/40 transition-all duration-300 group transform hover:-translate-y-1"
                 >
                   <div className="p-4 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">

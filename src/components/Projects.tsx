@@ -324,30 +324,14 @@ export default function Projects() {
         <div
           ref={cardsRef}
           data-visible={cardsVisible ? "true" : undefined}
-          className="scroll-fade-up grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="scroll-fade-up grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className="glass-effect rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/30 group transition-all duration-300 transform hover:-translate-y-1"
-              style={{
-                opacity: 0,
-                animation: "none",
-              }}
-              ref={(node) => {
-                if (!node) return;
-                // Lazy per-card observer for staggered reveal
-                const observer = new IntersectionObserver(
-                  ([entry]) => {
-                    if (entry.isIntersecting) {
-                      node.style.animation = `zoomIn 0.6s cubic-bezier(0.22,1,0.36,1) ${idx * 80}ms both`;
-                      observer.disconnect();
-                    }
-                  },
-                  { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-                );
-                observer.observe(node);
-              }}
+              data-visible={cardsVisible ? "true" : undefined}
+              className="scroll-zoom-in glass-effect rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/30 group transition-all duration-300 transform hover:-translate-y-1"
+              style={{ animationDelay: `${idx * 80}ms` }}
             >
               {/* Interactive Mockup Container */}
               <div className="h-56 relative w-full border-b border-slate-200 dark:border-slate-800/40 overflow-hidden">

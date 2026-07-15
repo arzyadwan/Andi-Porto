@@ -49,6 +49,7 @@ export default function Skills() {
             return (
               <div
                 key={index}
+                data-visible={gridVisible ? "true" : undefined}
                 className="scroll-zoom-in glass-effect p-8 rounded-2xl border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/40 hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-300"
               >
                 {/* Category Header */}
