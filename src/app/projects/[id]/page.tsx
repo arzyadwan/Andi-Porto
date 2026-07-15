@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { projectsData } from "@/data/portfolioData";
 import ProjectMockup from "@/components/Projects"; // We'll mock ProjectMockup inside or import the subcomponent
-import { ArrowLeft, ExternalLink, Github, Cpu, Settings, Database, Layers } from "lucide-react";
+import { ArrowLeft, ExternalLink, Cpu, Settings, Database, Layers } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 // Re-defining GithubIcon locally to keep imports clean
