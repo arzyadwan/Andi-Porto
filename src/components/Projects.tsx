@@ -263,6 +263,56 @@ function ProjectMockup({ id }: { id: string }) {
     );
   }
 
+  if (id === "proj-8") {
+    // Tebak Skor v2 mockup
+    return (
+      <div className="w-full h-full bg-[#020d0a] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#081a14] rounded-xl border border-emerald-500/20 p-2.5 shadow-xl flex flex-col justify-between">
+          {/* Header */}
+          <div className="flex justify-between items-center border-b border-emerald-500/10 pb-1">
+            <span className="text-[6px] font-black text-slate-300 tracking-wider">TEBAK SKOR V2</span>
+            <div className="flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+              <span className="text-[5px] text-rose-400 font-bold uppercase">LIVE</span>
+            </div>
+          </div>
+          {/* Live Score Display */}
+          <div className="flex justify-around items-center my-1.5">
+            <div className="text-center">
+              <span className="text-[8px] font-bold text-white block">ENG</span>
+              <span className="text-[5px] text-slate-500">Host</span>
+            </div>
+            <div className="flex items-center gap-1.5 bg-[#030d0a] px-2 py-0.5 rounded border border-emerald-500/10">
+              <span className="text-[10px] font-black text-emerald-400">2</span>
+              <span className="text-[6px] text-slate-600 font-bold">:</span>
+              <span className="text-[10px] font-black text-emerald-400">1</span>
+            </div>
+            <div className="text-center">
+              <span className="text-[8px] font-bold text-white block">ESP</span>
+              <span className="text-[5px] text-slate-500">Visitor</span>
+            </div>
+          </div>
+          {/* Leaderboard & Mini Info */}
+          <div className="bg-[#030d0a]/60 rounded p-1 text-[5px] text-slate-400 space-y-0.5 border border-emerald-500/5">
+            <div className="flex justify-between font-bold text-[5px] text-emerald-400 border-b border-emerald-500/10 pb-0.5 mb-0.5">
+              <span>LEADERBOARD NOBAR</span>
+              <span>POIN</span>
+            </div>
+            <div className="flex justify-between">
+              <span>1. Arzyadwan (Tebak 2-1)</span>
+              <span className="text-emerald-400 font-bold">3 Pts</span>
+            </div>
+            <div className="flex justify-between">
+              <span>2. Budianto (Tebak 1-0)</span>
+              <span className="text-emerald-400 font-bold">1 Pts</span>
+            </div>
+          </div>
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-emerald-500/5 rounded-full filter blur-xl pointer-events-none"></div>
+      </div>
+    );
+  }
+
   // default fallback
   return (
     <div className="w-full h-full bg-[#0a0a14] relative overflow-hidden flex items-center justify-center p-4">

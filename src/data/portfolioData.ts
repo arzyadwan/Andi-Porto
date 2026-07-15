@@ -251,6 +251,30 @@ export const projectsData: Project[] = [
       tools: ["Vercel", "Git & GitHub"]
     }
   },
+  {
+    id: "proj-8",
+    title: "Tebak Skor v2",
+    description: "Aplikasi interaktif tebak skor pertandingan sepak bola secara real-time untuk acara Nonton Bareng (Nobar) dengan integrasi database Supabase.",
+    longDescription: "Tebak Skor v2 adalah platform interaktif yang dikembangkan khusus untuk acara nonton bareng (nobar) sepak bola. Aplikasi ini memungkinkan penonton untuk mengirimkan prediksi skor mereka sebelum kick-off, sementara admin/panitia dapat mengelola jadwal pertandingan, memperbarui skor langsung (live score), dan menyajikan papan peringkat (leaderboard) pemenang secara transparan dan real-time di layar acara.",
+    image: "/projects/tebak-skor-v2.webp",
+    category: "Web App",
+    tags: ["HTML5", "CSS3", "JavaScript", "Supabase", "Tailwind CSS"],
+    githubLink: "https://github.com/arzyadwan/tebak-skor-v2",
+    liveLink: "https://tebak-skor-v2.vercel.app",
+    features: [
+      "Real-time Leaderboard: Papan peringkat peserta nobar yang diperbarui secara langsung begitu admin mengubah skor pertandingan.",
+      "Device Lock System: Membatasi satu prediksi per orang untuk tiap pertandingan guna menghindari spam/duplikasi tebakan.",
+      "Admin Control Panel: Dasbor khusus panitia yang diamankan dengan PIN untuk menginput pertandingan, menutup tebakan saat kick-off, dan meng-update skor live.",
+      "Flexible Scoring System: Pemberian poin otomatis (skor tepat = 3 poin, tebak pemenang/selisih tepat = 1 poin, salah semua = 0 poin).",
+      "Live Display View: Tampilan layar penuh interaktif yang cocok diproyeksikan ke layar proyektor atau TV saat acara nobar."
+    ],
+    fullTechStack: {
+      frontend: ["HTML5", "Tailwind CSS", "JavaScript (ES6)", "FontAwesome Icons", "Supabase JS Client"],
+      backend: ["Supabase Edge Functions / SECURED RPC Functions"],
+      database: ["Supabase (PostgreSQL) with Row Level Security (RLS)"],
+      tools: ["Vercel", "Git & GitHub"]
+    }
+  },
 ];
 
 export const experienceTimeline: ExperienceItem[] = [
