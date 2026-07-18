@@ -16,16 +16,10 @@ const GithubIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// We need a helper to render mockups or fallback images
-// We import ProjectMockup component from Projects.tsx if exported. Wait, it's not exported by default,
-// but we can make a clean fallback mockup display or render the exact same ProjectMockup internally.
-function ProjectVisual({ id, title }: { id: string; title: string }) {
-  // Let's create a premium layout wrapper representing a desktop screen or a placeholder
+// Helper to render the actual project image inside a browser frame showcase
+function ProjectVisual({ id, title, image }: { id: string; title: string; image: string }) {
   return (
     <div className="w-full aspect-video md:h-80 lg:h-96 bg-slate-900 rounded-3xl border border-slate-200/10 overflow-hidden relative shadow-2xl flex items-center justify-center group">
-      {/* Dynamic Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-transparent pointer-events-none z-0"></div>
-      
       {/* Simulated Browser Frame */}
       <div className="absolute top-0 inset-x-0 h-10 bg-slate-950/80 border-b border-slate-800/40 px-4 flex items-center gap-2 z-10">
         <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
@@ -36,17 +30,12 @@ function ProjectVisual({ id, title }: { id: string; title: string }) {
         </div>
       </div>
 
-      <div className="w-full h-full pt-10 flex items-center justify-center p-8 select-none">
-        <div className="text-center space-y-4">
-          <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center mx-auto shadow-lg shadow-indigo-500/5 animate-pulse">
-            <Layers className="w-8 h-8" />
-          </div>
-          <div>
-            <h4 className="font-heading font-bold text-lg text-white">{title}</h4>
-            <p className="text-xs text-slate-500 font-mono mt-1">{id}</p>
-          </div>
-        </div>
-      </div>
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full pt-10 object-cover"
+        loading="lazy"
+      />
     </div>
   );
 }
@@ -121,7 +110,7 @@ export default function ProjectDetailsPage({
           className="scroll-zoom-in stagger-children space-y-12"
         >
           <div data-visible={contentVisible ? "true" : undefined} className="scroll-zoom-in">
-            <ProjectVisual id={project.id} title={project.title} />
+            <ProjectVisual id={project.id} title={project.title} image={project.image} />
           </div>
 
           {/* Project Details Panel */}

@@ -370,9 +370,14 @@ export default function Projects() {
               className="scroll-zoom-in glass-effect rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800/40 flex flex-col hover:border-indigo-500/30 group transition-all duration-300 transform hover:-translate-y-1"
               style={{ animationDelay: `${idx * 80}ms` }}
             >
-              {/* Interactive Mockup Container */}
-              <div className="h-56 relative w-full border-b border-slate-200 dark:border-slate-800/40 overflow-hidden">
-                <ProjectMockup id={project.id} />
+              {/* Project Image Thumbnail */}
+              <div className="h-56 relative w-full border-b border-slate-200 dark:border-slate-800/40 overflow-hidden bg-slate-950/25">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-all duration-300 backdrop-blur-sm">
                   <Link
