@@ -71,7 +71,7 @@ export const personalInfo = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Frontend Development",
+    title: "Frontend",
     skills: [
       { name: "React / Next.js", level: 90, icon: "React" },
       { name: "TypeScript", level: 85, icon: "TypeScript" },
@@ -81,7 +81,7 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Backend & Database",
+    title: "Backend",
     skills: [
       { name: "Node.js / Express", level: 75, icon: "NodeJS" },
       { name: "RESTful API Design", level: 85, icon: "API" },
@@ -90,12 +90,19 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Tools & Design Systems",
+    title: "Tools",
     skills: [
-      { name: "Figma (UI/UX Design)", level: 85, icon: "Figma" },
       { name: "Git & Version Control", level: 90, icon: "Git" },
       { name: "Docker & Containerization", level: 60, icon: "Docker" },
       { name: "Vercel / Netlify (CI/CD)", level: 85, icon: "Vercel" },
+    ],
+  },
+  {
+    title: "Design System",
+    skills: [
+      { name: "Figma (UI/UX Design)", level: 85, icon: "Figma" },
+      { name: "Component-driven Development", level: 80, icon: "Component" },
+      { name: "Design Tokens & Style Guides", level: 85, icon: "StyleGuide" },
     ],
   },
 ];
