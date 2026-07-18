@@ -15,7 +15,7 @@ import {
   Workflow, 
   GitBranch, 
   Container, 
-  Figma, 
+  PenTool, 
   Layers, 
   FileText
 } from "lucide-react";
@@ -73,7 +73,7 @@ export default function Skills() {
       return { icon: Server, color: "text-slate-800 dark:text-slate-100", bg: "bg-slate-500/10", border: "hover:border-slate-500/30", glow: "shadow-slate-500/5" };
     }
     if (lowercaseName.includes("figma")) {
-      return { icon: Figma, color: "text-rose-500", bg: "bg-rose-500/10", border: "hover:border-rose-500/30", glow: "shadow-rose-500/5" };
+      return { icon: PenTool, color: "text-rose-500", bg: "bg-rose-500/10", border: "hover:border-rose-500/30", glow: "shadow-rose-500/5" };
     }
     if (lowercaseName.includes("component") || lowercaseName.includes("story")) {
       return { icon: Layers, color: "text-violet-500", bg: "bg-violet-500/10", border: "hover:border-violet-500/30", glow: "shadow-violet-500/5" };
