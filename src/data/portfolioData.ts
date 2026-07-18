@@ -117,7 +117,7 @@ export const projectsData: Project[] = [
     category: "Web App",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     githubLink: "https://github.com/arzyadwan/Andi-Porto",
-    liveLink: "https://personal-portfolio-bay-delta-83.vercel.app",
+    liveLink: "https://arzyadwan.vercel.app",
     features: [
       "Multipage Router Architecture: Perpindahan halaman super cepat dan mulus menggunakan Next.js App Router.",
       "Interactive Projects Showcases: Kartu proyek interaktif dengan micro-frontend mockups terintegrasi langsung di UI.",
