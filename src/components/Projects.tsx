@@ -17,32 +17,39 @@ const GithubIcon = ({ className }: { className?: string }) => (
 // Interactive React mockups to replace static images and show off Frontend coding skill!
 function ProjectMockup({ id }: { id: string }) {
   if (id === "proj-1") {
-    // Amali Admin Dashboard
+    // Andi-Porto portfolio website mockup
     return (
       <div className="w-full h-full bg-[#030014] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[200px] h-[130px] bg-[#0c0a24] rounded-xl border border-indigo-500/20 p-2.5 shadow-xl flex flex-col justify-between">
-          {/* Dashboard Header */}
-          <div className="flex justify-between items-center border-b border-indigo-500/10 pb-1.5">
-            <span className="text-[7px] font-black text-slate-200 uppercase tracking-wider">Amali Admin</span>
-            <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
-          </div>
-          {/* Stats widgets */}
-          <div className="grid grid-cols-2 gap-2 my-2">
-            <div className="bg-[#050415] rounded p-1 border border-indigo-500/10">
-              <span className="text-[4px] text-slate-500 block uppercase font-bold">Penjualan</span>
-              <span className="text-[7px] text-emerald-400 font-bold block">Rp 45.2M</span>
-            </div>
-            <div className="bg-[#050415] rounded p-1 border border-indigo-500/10">
-              <span className="text-[4px] text-slate-500 block uppercase font-bold">Produk Baru</span>
-              <span className="text-[7px] text-indigo-400 font-bold block">+12 Item</span>
+        <div className="w-[190px] h-[130px] bg-[#09051c] rounded-xl border border-indigo-500/20 p-2 shadow-xl flex flex-col justify-between">
+          <div className="flex items-center justify-between border-b border-indigo-500/10 pb-1">
+            <span className="text-[6px] font-bold text-slate-200 tracking-wider">Arzyadwan Porto</span>
+            <div className="flex gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500/50"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50"></span>
             </div>
           </div>
-          {/* User management list */}
-          <div className="space-y-1">
-            <div className="h-3 w-full bg-[#050415] rounded flex items-center justify-between px-1 text-[5px] text-slate-400">
-              <span>Admin Utama</span>
-              <span className="text-emerald-400 font-semibold">Online</span>
+          {/* Section mockups */}
+          <div className="flex-1 my-1.5 flex gap-2">
+            <div className="w-12 bg-indigo-500/5 border border-indigo-500/10 rounded p-0.5 space-y-1">
+              <div className="h-1.5 w-full bg-indigo-500/20 rounded"></div>
+              <div className="h-1 w-full bg-slate-700/30 rounded"></div>
+              <div className="h-1 w-2/3 bg-slate-700/30 rounded"></div>
             </div>
+            <div className="flex-1 grid grid-cols-2 gap-1.5">
+              <div className="bg-[#05030f] border border-indigo-500/5 rounded p-0.5">
+                <div className="h-3 w-3 rounded-full bg-indigo-500/20 mb-0.5"></div>
+                <div className="h-1 w-full bg-slate-700/50 rounded"></div>
+              </div>
+              <div className="bg-[#05030f] border border-indigo-500/5 rounded p-0.5">
+                <div className="h-3 w-3 rounded-full bg-purple-500/20 mb-0.5"></div>
+                <div className="h-1 w-full bg-slate-700/50 rounded"></div>
+              </div>
+            </div>
+          </div>
+          {/* Footer toggle */}
+          <div className="flex justify-between items-center text-[4px] text-slate-500">
+            <span>Next.js 16 App</span>
+            <span className="text-indigo-400 font-bold">Multipage</span>
           </div>
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-indigo-500/5 rounded-full filter blur-xl pointer-events-none"></div>
@@ -51,143 +58,141 @@ function ProjectMockup({ id }: { id: string }) {
   }
 
   if (id === "proj-2") {
-    // Crypto AI Studio Website
+    // bayfund Web3 Crowdfunding mockup
     return (
-      <div className="w-full h-full bg-[#070212] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[190px] h-[130px] bg-[#12052b] rounded-xl border border-purple-500/20 p-2.5 shadow-xl flex flex-col justify-between">
-          {/* Header */}
+      <div className="w-full h-full bg-[#05070a] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#0c1017] rounded-xl border border-blue-500/20 p-2.5 shadow-xl flex flex-col justify-between">
           <div className="flex justify-between items-center">
-            <span className="text-[7px] font-black text-purple-400 tracking-wider">CRYPTO.AI</span>
-            <span className="text-[5px] bg-purple-500/20 text-purple-300 px-1 py-0.5 rounded font-bold uppercase">NFT Live</span>
+            <span className="text-[7px] font-bold text-blue-400 tracking-wider">bayfund</span>
+            <span className="text-[5px] bg-blue-500/20 text-blue-300 px-1 py-0.5 rounded font-bold uppercase">MetaMask</span>
           </div>
-          {/* Crypto Tickers */}
-          <div className="space-y-1 my-1.5">
-            <div className="flex justify-between text-[6px] border-b border-purple-500/10 pb-0.5">
-              <span className="text-slate-300">BTC/USDT</span>
-              <span className="text-emerald-400 font-bold">$92,420 (+4.2%)</span>
+          {/* Campaign details */}
+          <div className="my-1.5">
+            <span className="text-[6px] text-white font-bold block truncate">Campaign: Clean Energy</span>
+            <div className="flex justify-between text-[5px] text-slate-400 mt-1">
+              <span>Pledge: 8.5 POL</span>
+              <span>Target: 10 POL</span>
             </div>
-            <div className="flex justify-between text-[6px]">
-              <span className="text-slate-300">ETH/USDT</span>
-              <span className="text-emerald-400 font-bold">$3,150 (+2.8%)</span>
+            {/* Progress bar */}
+            <div className="h-1 w-full bg-slate-800 rounded-full mt-0.5 relative overflow-hidden">
+              <div className="absolute left-0 top-0 h-full w-[85%] bg-blue-500 rounded-full"></div>
             </div>
           </div>
-          {/* Action Button */}
-          <div className="w-full py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded text-center text-[6px] font-black text-white shadow-md shadow-purple-900/50 cursor-pointer">
-            MINT NFT NOW
+          {/* Donation Button */}
+          <div className="w-full py-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded text-center text-[6px] font-black text-white shadow-md shadow-blue-900/50 cursor-pointer">
+            DONATE TO CAMPAIGN
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] bg-purple-500/10 rounded-full filter blur-xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] bg-blue-500/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
 
   if (id === "proj-3") {
-    // Event Exposure Media Website
+    // ce-referral-bot Telegram referral chat mockup
     return (
-      <div className="w-full h-full bg-[#030708] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[190px] h-[130px] bg-[#071316] rounded-xl border border-emerald-500/20 p-2.5 shadow-xl flex flex-col justify-between">
-          <div className="flex justify-between items-center">
-            <span className="text-[7px] font-bold text-slate-300">Event Portal</span>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <div className="w-full h-full bg-[#0d161a] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#142329] rounded-xl border border-teal-500/20 p-2 shadow-xl flex flex-col justify-between">
+          {/* Telegram header */}
+          <div className="flex items-center gap-1.5 border-b border-teal-500/10 pb-1">
+            <div className="w-2.5 h-2.5 rounded-full bg-teal-500 flex items-center justify-center text-[5px] font-bold text-white">R</div>
+            <span className="text-[6px] font-bold text-slate-300">Anoa Referral Bot</span>
           </div>
-          {/* Event items */}
-          <div className="space-y-1.5 my-2">
-            <div className="bg-[#030809] border border-emerald-500/10 rounded p-1 flex justify-between items-center">
-              <div>
-                <span className="text-[6px] text-white font-bold block">Developer Hackathon</span>
-                <span className="text-[4px] text-slate-400 block mt-0.5">14 Juli 2026</span>
-              </div>
-              <span className="text-[4px] bg-emerald-500/20 text-emerald-300 px-1 rounded uppercase font-bold">Tech</span>
+          {/* Chat bubble screen */}
+          <div className="space-y-1.5 my-1.5 flex-1 flex flex-col justify-end">
+            <div className="self-end bg-teal-500/20 text-teal-300 text-[5px] p-1 rounded-l-md rounded-t-md max-w-[120px]">
+              /referral
             </div>
-            <div className="bg-[#030809] border border-emerald-500/10 rounded p-1 flex justify-between items-center">
-              <div>
-                <span className="text-[6px] text-white font-bold block">Music Night Festival</span>
-                <span className="text-[4px] text-slate-400 block mt-0.5">25 Agustus 2026</span>
-              </div>
-              <span className="text-[4px] bg-amber-500/20 text-amber-300 px-1 rounded uppercase font-bold">Music</span>
+            <div className="self-start bg-[#0e1b20] text-slate-300 text-[5px] p-1 rounded-r-md rounded-t-md max-w-[140px] border border-teal-500/10">
+              <span className="block font-bold">Rujukan Anda:</span>
+              <span className="block text-teal-400">t.me/+AbCdEf</span>
+              <span className="block text-[4px] text-slate-400">VALID: 12 • PENDING: 3</span>
             </div>
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-emerald-500/5 rounded-full filter blur-xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-teal-500/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
 
   if (id === "proj-4") {
-    // Amali POS System
+    // andiytmp4 YouTube downloader mockup
     return (
-      <div className="w-full h-full bg-[#040909] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[190px] h-[130px] bg-[#0c1a1a] rounded-xl border border-teal-500/20 p-2.5 shadow-xl flex flex-col justify-between">
-          <div className="flex justify-between items-center border-b border-teal-500/10 pb-1">
-            <span className="text-[7px] font-bold text-slate-300">Amali POS Screen</span>
-            <span className="text-[5px] text-teal-400 font-bold">Checkout</span>
+      <div className="w-full h-full bg-[#0f0a04] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#1a1208] rounded-xl border border-orange-500/20 p-2.5 shadow-xl flex flex-col justify-between">
+          <div className="flex justify-between items-center">
+            <span className="text-[7px] font-black text-orange-500 tracking-wider">andiiytmp4</span>
+            <span className="text-[5px] bg-orange-500/20 text-orange-400 px-1.5 py-0.5 rounded font-bold uppercase">SSE Live</span>
           </div>
-          {/* Checkout items */}
-          <div className="space-y-1 my-1">
-            <div className="flex justify-between text-[5px] text-slate-400">
-              <span>1x Produk Retail A</span>
-              <span>Rp 25.000</span>
+          {/* Input url mockup */}
+          <div className="bg-black/60 rounded border border-orange-500/10 p-1 text-[5px] text-slate-500 font-mono truncate">
+            https://www.youtube.com/watch?v=dQw4w9WgXcQ
+          </div>
+          {/* Progress bar */}
+          <div className="space-y-1">
+            <div className="flex justify-between text-[4.5px] text-slate-400">
+               <span>Downloading: 78%</span>
+               <span className="text-orange-400">4.2 MB/s (ETA: 4s)</span>
             </div>
-            <div className="flex justify-between text-[5px] text-slate-400 border-b border-teal-500/5 pb-1">
-              <span>2x Produk Retail B</span>
-              <span>Rp 40.000</span>
-            </div>
-            <div className="flex justify-between text-[6px] text-white font-bold">
-              <span>TOTAL</span>
-              <span>Rp 65.000</span>
+            <div className="h-1 w-full bg-slate-900 rounded-full relative overflow-hidden">
+              <div className="absolute left-0 top-0 h-full w-[78%] bg-orange-500 rounded-full"></div>
             </div>
           </div>
-          <button className="w-full py-1 bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-[6px] rounded text-center cursor-pointer">
-            BAYAR SEKARANG
-          </button>
+          {/* Output format selection */}
+          <div className="flex gap-1.5">
+            <span className="flex-1 py-0.5 text-center text-[5px] bg-orange-500 text-black font-extrabold rounded cursor-pointer">MP4 VIDEO</span>
+            <span className="flex-1 py-0.5 text-center text-[5px] bg-transparent border border-orange-500/30 text-orange-400 font-semibold rounded cursor-pointer">MP3 AUDIO</span>
+          </div>
         </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140px] h-[140px] bg-orange-500/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
 
   if (id === "proj-5") {
-    // Kalkulator Kredit Amali Mobile
+    // Tebak Skor v2 live nobar screen mockup
     return (
-      <div className="w-full h-full bg-[#090503] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[110px] h-[190px] bg-[#1a0f0a] rounded-2xl border-2 border-orange-500/20 p-2 shadow-lg flex flex-col justify-between relative">
-          {/* Status Bar */}
-          <div className="flex justify-between items-center text-[5px] text-orange-400 mb-1 px-1">
-            <span>12:00</span>
-            <span>100%</span>
-          </div>
-          {/* Title */}
-          <div className="text-center">
-            <span className="text-[6px] font-bold text-white uppercase tracking-wider block">Kalkulator Kredit</span>
-            <div className="w-6 h-0.5 bg-orange-500 mx-auto mt-0.5 rounded"></div>
-          </div>
-          {/* Sliders mockup */}
-          <div className="space-y-2 my-2 flex-1 flex flex-col justify-center">
-            <div className="space-y-0.5">
-              <div className="flex justify-between text-[4px] text-slate-400">
-                <span>Jumlah Pinjaman</span>
-                <span className="text-orange-400">Rp 10jt</span>
-              </div>
-              <div className="h-1 w-full bg-slate-900 rounded-full relative">
-                <div className="absolute left-0 top-0 h-full w-2/3 bg-orange-500 rounded-full"></div>
-              </div>
-            </div>
-            <div className="space-y-0.5">
-              <div className="flex justify-between text-[4px] text-slate-400">
-                <span>Tenor (Bulan)</span>
-                <span className="text-orange-400">12 Bln</span>
-              </div>
-              <div className="h-1 w-full bg-slate-900 rounded-full relative">
-                <div className="absolute left-0 top-0 h-full w-1/2 bg-orange-500 rounded-full"></div>
-              </div>
+      <div className="w-full h-full bg-[#020d0a] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#081a14] rounded-xl border border-emerald-500/20 p-2.5 shadow-xl flex flex-col justify-between">
+          {/* Header */}
+          <div className="flex justify-between items-center border-b border-emerald-500/10 pb-1">
+            <span className="text-[6px] font-black text-slate-300 tracking-wider">TEBAK SKOR V2</span>
+            <div className="flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+              <span className="text-[5px] text-rose-400 font-bold uppercase">LIVE</span>
             </div>
           </div>
-          {/* Output */}
-          <div className="bg-black/60 rounded p-1 text-center border border-orange-500/10">
-            <span className="text-[4px] text-slate-500 block uppercase">Angsuran / Bln</span>
-            <span className="text-[7px] text-orange-400 font-extrabold block">Rp 983.333</span>
+          {/* Live Score Display */}
+          <div className="flex justify-around items-center my-1.5">
+            <div className="text-center">
+              <span className="text-[8px] font-bold text-white block">ENG</span>
+            </div>
+            <div className="flex items-center gap-1.5 bg-[#030d0a] px-2 py-0.5 rounded border border-emerald-500/10">
+              <span className="text-[10px] font-black text-emerald-400">2</span>
+              <span className="text-[6px] text-slate-600 font-bold">:</span>
+              <span className="text-[10px] font-black text-emerald-400">1</span>
+            </div>
+            <div className="text-center">
+              <span className="text-[8px] font-bold text-white block">ESP</span>
+            </div>
+          </div>
+          {/* Leaderboard & Mini Info */}
+          <div className="bg-[#030d0a]/60 rounded p-1 text-[5px] text-slate-400 space-y-0.5 border border-emerald-500/5">
+            <div className="flex justify-between font-bold text-[5px] text-emerald-400 border-b border-emerald-500/10 pb-0.5 mb-0.5">
+              <span>LEADERBOARD NOBAR</span>
+              <span>POIN</span>
+            </div>
+            <div className="flex justify-between">
+              <span>1. Arzyadwan (Tebak 2-1)</span>
+              <span className="text-emerald-400 font-bold">3 Pts</span>
+            </div>
+            <div className="flex justify-between">
+              <span>2. Budianto (Tebak 1-0)</span>
+              <span className="text-emerald-400 font-bold">1 Pts</span>
+            </div>
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130px] h-[130px] bg-orange-500/5 rounded-full filter blur-xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-emerald-500/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
@@ -264,51 +269,32 @@ function ProjectMockup({ id }: { id: string }) {
   }
 
   if (id === "proj-8") {
-    // Tebak Skor v2 mockup
+    // Winsnip Corporate Web UI mockup
     return (
-      <div className="w-full h-full bg-[#020d0a] relative overflow-hidden flex items-center justify-center p-4">
-        <div className="w-[190px] h-[130px] bg-[#081a14] rounded-xl border border-emerald-500/20 p-2.5 shadow-xl flex flex-col justify-between">
+      <div className="w-full h-full bg-[#040503] relative overflow-hidden flex items-center justify-center p-4">
+        <div className="w-[190px] h-[130px] bg-[#0b0c07] rounded-xl border border-[#ccff00]/20 p-2.5 shadow-xl flex flex-col justify-between">
           {/* Header */}
-          <div className="flex justify-between items-center border-b border-emerald-500/10 pb-1">
-            <span className="text-[6px] font-black text-slate-300 tracking-wider">TEBAK SKOR V2</span>
-            <div className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
-              <span className="text-[5px] text-rose-400 font-bold uppercase">LIVE</span>
+          <div className="flex justify-between items-center border-b border-[#ccff00]/10 pb-1">
+            <span className="text-[7px] font-black text-white tracking-wider">WINSNIP</span>
+            <span className="text-[5.5px] text-[#ccff00] font-black uppercase">IT Business</span>
+          </div>
+          {/* Services */}
+          <div className="space-y-1 my-1">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded bg-[#ccff00]"></span>
+              <span className="text-[5.5px] text-slate-300">Software & Cloud Dev</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded bg-[#ccff00]"></span>
+              <span className="text-[5.5px] text-slate-300">Cyber Security Audit</span>
             </div>
           </div>
-          {/* Live Score Display */}
-          <div className="flex justify-around items-center my-1.5">
-            <div className="text-center">
-              <span className="text-[8px] font-bold text-white block">ENG</span>
-              <span className="text-[5px] text-slate-500">Host</span>
-            </div>
-            <div className="flex items-center gap-1.5 bg-[#030d0a] px-2 py-0.5 rounded border border-emerald-500/10">
-              <span className="text-[10px] font-black text-emerald-400">2</span>
-              <span className="text-[6px] text-slate-600 font-bold">:</span>
-              <span className="text-[10px] font-black text-emerald-400">1</span>
-            </div>
-            <div className="text-center">
-              <span className="text-[8px] font-bold text-white block">ESP</span>
-              <span className="text-[5px] text-slate-500">Visitor</span>
-            </div>
-          </div>
-          {/* Leaderboard & Mini Info */}
-          <div className="bg-[#030d0a]/60 rounded p-1 text-[5px] text-slate-400 space-y-0.5 border border-emerald-500/5">
-            <div className="flex justify-between font-bold text-[5px] text-emerald-400 border-b border-emerald-500/10 pb-0.5 mb-0.5">
-              <span>LEADERBOARD NOBAR</span>
-              <span>POIN</span>
-            </div>
-            <div className="flex justify-between">
-              <span>1. Arzyadwan (Tebak 2-1)</span>
-              <span className="text-emerald-400 font-bold">3 Pts</span>
-            </div>
-            <div className="flex justify-between">
-              <span>2. Budianto (Tebak 1-0)</span>
-              <span className="text-emerald-400 font-bold">1 Pts</span>
-            </div>
+          {/* Studio integration btn */}
+          <div className="w-full py-1 bg-[#ccff00] text-black font-extrabold text-center text-[6px] rounded cursor-pointer uppercase shadow-lg shadow-[#ccff00]/10 hover:bg-[#ccff00]/90 transition-all">
+            Open Studio (/studio)
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-emerald-500/5 rounded-full filter blur-xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-[#ccff00]/5 rounded-full filter blur-xl pointer-events-none"></div>
       </div>
     );
   }
