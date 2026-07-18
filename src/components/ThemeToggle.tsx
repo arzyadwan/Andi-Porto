@@ -11,6 +11,7 @@ export default function ThemeToggle() {
     // Read theme from localStorage or default to dark
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     const initialTheme = savedTheme || "dark";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initialTheme);
     
     if (initialTheme === "light") {
