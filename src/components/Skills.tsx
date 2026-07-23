@@ -66,6 +66,28 @@ export default function Skills() {
     return "from-slate-400 to-slate-600";
   };
 
+  const getTechBgColor = (techName: string) => {
+    const n = techName.toLowerCase();
+    if (n.includes("react") || n.includes("next")) return "bg-sky-50 dark:bg-sky-950/15";
+    if (n.includes("typescript")) return "bg-blue-50 dark:bg-blue-950/15";
+    if (n.includes("tailwind")) return "bg-teal-50 dark:bg-teal-950/15";
+    if (n.includes("html") || n.includes("css")) return "bg-orange-50 dark:bg-orange-950/15";
+    if (n.includes("js") && !n.includes("next") && !n.includes("express")) return "bg-yellow-50 dark:bg-yellow-950/15";
+    if (n.includes("zustand") || n.includes("redux")) return "bg-purple-50 dark:bg-purple-950/15";
+    if (n.includes("node") || n.includes("express")) return "bg-green-50 dark:bg-green-950/15";
+    if (n.includes("postgres") || n.includes("mongo") || n.includes("database") || n.includes("db")) return "bg-cyan-50 dark:bg-cyan-950/15";
+    if (n.includes("graphql")) return "bg-pink-50 dark:bg-pink-950/15";
+    if (n.includes("git")) return "bg-orange-50 dark:bg-orange-950/15";
+    if (n.includes("docker")) return "bg-blue-50 dark:bg-blue-950/15";
+    if (n.includes("figma")) return "bg-rose-50 dark:bg-rose-950/15";
+    if (n.includes("storybook")) return "bg-pink-50 dark:bg-pink-950/15";
+    if (n.includes("sanity")) return "bg-red-50 dark:bg-rose-950/15";
+    if (n.includes("solidity")) return "bg-indigo-50 dark:bg-indigo-950/15";
+    if (n.includes("supabase")) return "bg-emerald-50 dark:bg-emerald-950/15";
+    if (n.includes("python")) return "bg-yellow-50 dark:bg-yellow-950/15";
+    return "bg-slate-50 dark:bg-slate-950/15";
+  };
+
   return (
     <section
       id="skills"
@@ -167,9 +189,9 @@ export default function Skills() {
                     className={`w-[72px] h-[80px] flex items-center justify-center transition-all duration-300 bg-slate-200 dark:bg-slate-800/80 group-hover:bg-gradient-to-br group-hover:${gradient}`}
                     style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                   >
-                    {/* Inner Hexagon (body card background) */}
+                    {/* Inner Hexagon (body card background with brand color) */}
                     <div 
-                      className="w-[68px] h-[76px] bg-slate-50 dark:bg-[#070719] flex items-center justify-center transition-colors duration-300 group-hover:bg-white dark:group-hover:bg-[#0d0c2b]"
+                      className={`w-[68px] h-[76px] ${getTechBgColor(tech.name)} flex items-center justify-center transition-colors duration-300 group-hover:bg-white dark:group-hover:bg-[#0c0b24]`}
                       style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                     >
                       <StackIcon name={tech.icon as any} className="w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110" />
