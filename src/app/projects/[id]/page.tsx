@@ -7,6 +7,8 @@ import { projectsData } from "@/data/portfolioData";
 import ProjectMockup from "@/components/Projects"; // We'll mock ProjectMockup inside or import the subcomponent
 import { ArrowLeft, ExternalLink, Cpu, Settings, Database, Layers } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import StackIcon from "tech-stack-icons";
+import { mapTechToIconName } from "@/utils/techIcons";
 
 // Re-defining GithubIcon locally to keep imports clean
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -198,11 +200,15 @@ export default function ProjectDetailsPage({
                           Frontend
                         </span>
                         <div className="flex flex-wrap gap-1.5">
-                          {project.fullTechStack.frontend.map((t, idx) => (
-                            <span key={idx} className="text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-0.5 rounded-md">
-                              {t}
-                            </span>
-                          ))}
+                          {project.fullTechStack.frontend.map((t, idx) => {
+                            const iconName = mapTechToIconName(t);
+                            return (
+                              <span key={idx} className="inline-flex items-center gap-1.5 text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-0.5 rounded-md">
+                                {iconName && <StackIcon name={iconName as any} className="w-3 h-3 shrink-0" />}
+                                {t}
+                              </span>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -215,11 +221,15 @@ export default function ProjectDetailsPage({
                           Backend
                         </span>
                         <div className="flex flex-wrap gap-1.5">
-                          {project.fullTechStack.backend.map((t, idx) => (
-                            <span key={idx} className="text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-0.5 rounded-md">
-                              {t}
-                            </span>
-                          ))}
+                          {project.fullTechStack.backend.map((t, idx) => {
+                            const iconName = mapTechToIconName(t);
+                            return (
+                              <span key={idx} className="inline-flex items-center gap-1.5 text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-0.5 rounded-md">
+                                {iconName && <StackIcon name={iconName as any} className="w-3 h-3 shrink-0" />}
+                                {t}
+                              </span>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -232,11 +242,36 @@ export default function ProjectDetailsPage({
                           Database
                         </span>
                         <div className="flex flex-wrap gap-1.5">
-                          {project.fullTechStack.database.map((t, idx) => (
-                            <span key={idx} className="text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-0.5 rounded-md">
-                              {t}
-                            </span>
-                          ))}
+                          {project.fullTechStack.database.map((t, idx) => {
+                            const iconName = mapTechToIconName(t);
+                            return (
+                              <span key={idx} className="inline-flex items-center gap-1.5 text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-0.5 rounded-md">
+                                {iconName && <StackIcon name={iconName as any} className="w-3 h-3 shrink-0" />}
+                                {t}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Tools Stack */}
+                    {project.fullTechStack.tools && (
+                      <div className="space-y-2">
+                        <span className="text-[10px] text-slate-400 uppercase font-bold flex items-center gap-1.5">
+                          <Layers className="w-3.5 h-3.5 text-amber-500" />
+                          Tools &amp; Others
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.fullTechStack.tools.map((t, idx) => {
+                            const iconName = mapTechToIconName(t);
+                            return (
+                              <span key={idx} className="inline-flex items-center gap-1.5 text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-0.5 rounded-md">
+                                {iconName && <StackIcon name={iconName as any} className="w-3 h-3 shrink-0" />}
+                                {t}
+                              </span>
+                            );
+                          })}
                         </div>
                       </div>
                     )}

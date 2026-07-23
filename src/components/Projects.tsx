@@ -5,6 +5,8 @@ import { projectsData, Project } from "../data/portfolioData";
 import { ExternalLink, Layers } from "lucide-react";
 import Link from "next/link";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import StackIcon from "tech-stack-icons";
+import { mapTechToIconName } from "@/utils/techIcons";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -437,14 +439,18 @@ export default function Projects() {
 
                 {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-900/60">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-1 rounded-md"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {project.tags.map((tag, i) => {
+                    const iconName = mapTechToIconName(tag);
+                    return (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1.5 text-[10px] text-text-secondary bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 px-2 py-1 rounded-md"
+                      >
+                        {iconName && <StackIcon name={iconName as any} className="w-3.5 h-3.5 shrink-0" />}
+                        {tag}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
