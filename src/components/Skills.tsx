@@ -69,7 +69,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative py-24 px-4 md:px-12 border-b border-slate-200 dark:border-slate-900/40 overflow-hidden grid-bg-dot"
+      className="relative py-24 px-4 md:px-12 border-b border-slate-200 dark:border-slate-900/40 overflow-hidden grid-bg-dot flex-1 min-h-screen flex flex-col justify-center"
     >
       {/* CSS Animation Injector */}
       <style>{`
