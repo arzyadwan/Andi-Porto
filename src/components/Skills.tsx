@@ -158,15 +158,17 @@ export default function Skills() {
                         className={`flex items-center gap-3.5 p-3 rounded-xl border border-slate-100 dark:border-slate-800/40 bg-slate-50/50 dark:bg-slate-900/10 hover:bg-white dark:hover:bg-slate-900/40 transition-all duration-300 group shadow-sm hover:shadow-md ${config.border} ${config.glow}`}
                       >
                         {/* Technology Icon Wrapper */}
-                        <div className={`flex items-center gap-1.5 p-2.5 rounded-lg transition-transform duration-300 group-hover:scale-110 ${config.bg} ${matchedIcons.length > 0 ? "" : config.color}`}>
-                          {matchedIcons.length > 0 ? (
-                            matchedIcons.map(iconName => (
-                              <StackIcon key={iconName} name={iconName as any} className="w-5 h-5 shrink-0" />
-                            ))
-                          ) : (
-                            <SkillIcon className="w-5 h-5 shrink-0" />
-                          )}
-                        </div>
+                        {matchedIcons.length > 0 ? (
+                          <div className="flex items-center gap-2 transition-transform duration-300 group-hover:scale-110 shrink-0">
+                            {matchedIcons.map(iconName => (
+                              <StackIcon key={iconName} name={iconName as any} className="w-7 h-7 shrink-0" />
+                            ))}
+                          </div>
+                        ) : (
+                          <div className={`p-2 rounded-lg transition-transform duration-300 group-hover:scale-110 ${config.bg} ${config.color} shrink-0`}>
+                            <SkillIcon className="w-5 h-5" />
+                          </div>
+                        )}
                         
                         {/* Technology Label & Level */}
                         <div className="flex flex-col min-w-0">
