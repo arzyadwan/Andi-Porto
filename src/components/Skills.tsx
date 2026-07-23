@@ -146,8 +146,8 @@ export default function Skills() {
                   </div>
                 </div>
 
-                {/* Skill List as Grid of Icons/Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+                {/* Skill List as Flex Wrap of Logos */}
+                <div className="flex flex-wrap gap-3.5 flex-1">
                   {category.skills.map((skill, skillIndex) => {
                     const config = getSkillConfig(skill.name);
                     const SkillIcon = config.icon;
@@ -155,30 +155,18 @@ export default function Skills() {
                     return (
                       <div 
                         key={skillIndex} 
-                        className={`flex items-center gap-3.5 p-3 rounded-xl border border-slate-100 dark:border-slate-800/40 bg-slate-50/50 dark:bg-slate-900/10 hover:bg-white dark:hover:bg-slate-900/40 transition-all duration-300 group shadow-sm hover:shadow-md ${config.border} ${config.glow}`}
+                        title={skill.name}
+                        className={`flex items-center justify-center h-12 min-w-12 px-3 rounded-xl border border-slate-100 dark:border-slate-800/40 bg-slate-50/50 dark:bg-slate-900/10 hover:bg-white dark:hover:bg-slate-900/40 transition-all duration-300 group shadow-sm hover:shadow-md shrink-0 cursor-help ${config.border} ${config.glow}`}
                       >
-                        {/* Technology Icon Wrapper */}
                         {matchedIcons.length > 0 ? (
-                          <div className="flex items-center gap-2 transition-transform duration-300 group-hover:scale-110 shrink-0">
+                          <div className="flex items-center gap-1.5 shrink-0">
                             {matchedIcons.map(iconName => (
-                              <StackIcon key={iconName} name={iconName as any} className="w-7 h-7 shrink-0" />
+                              <StackIcon key={iconName} name={iconName as any} className="w-6 h-6 shrink-0 transition-transform duration-300 group-hover:scale-110" />
                             ))}
                           </div>
                         ) : (
-                          <div className={`p-2 rounded-lg transition-transform duration-300 group-hover:scale-110 ${config.bg} ${config.color} shrink-0`}>
-                            <SkillIcon className="w-5 h-5" />
-                          </div>
+                          <SkillIcon className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110 ${config.color}`} />
                         )}
-                        
-                        {/* Technology Label & Level */}
-                        <div className="flex flex-col min-w-0">
-                          <span className="font-semibold text-text-primary text-sm tracking-wide truncate group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors">
-                            {skill.name}
-                          </span>
-                          <span className="text-[10px] text-text-secondary font-medium mt-0.5">
-                            {skill.level}% • {getProficiencyLabel(skill.level)}
-                          </span>
-                        </div>
                       </div>
                     );
                   })}
