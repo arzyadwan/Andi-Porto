@@ -66,32 +66,10 @@ export default function Skills() {
     return "from-slate-400 to-slate-600";
   };
 
-  const getTechBgColor = (techName: string) => {
-    const n = techName.toLowerCase();
-    if (n.includes("react") || n.includes("next")) return "bg-sky-50 dark:bg-sky-950/15";
-    if (n.includes("typescript")) return "bg-blue-50 dark:bg-blue-950/15";
-    if (n.includes("tailwind")) return "bg-teal-50 dark:bg-teal-950/15";
-    if (n.includes("html") || n.includes("css")) return "bg-orange-50 dark:bg-orange-950/15";
-    if (n.includes("js") && !n.includes("next") && !n.includes("express")) return "bg-yellow-50 dark:bg-yellow-950/15";
-    if (n.includes("zustand") || n.includes("redux")) return "bg-purple-50 dark:bg-purple-950/15";
-    if (n.includes("node") || n.includes("express")) return "bg-green-50 dark:bg-green-950/15";
-    if (n.includes("postgres") || n.includes("mongo") || n.includes("database") || n.includes("db")) return "bg-cyan-50 dark:bg-cyan-950/15";
-    if (n.includes("graphql")) return "bg-pink-50 dark:bg-pink-950/15";
-    if (n.includes("git")) return "bg-orange-50 dark:bg-orange-950/15";
-    if (n.includes("docker")) return "bg-blue-50 dark:bg-blue-950/15";
-    if (n.includes("figma")) return "bg-rose-50 dark:bg-rose-950/15";
-    if (n.includes("storybook")) return "bg-pink-50 dark:bg-pink-950/15";
-    if (n.includes("sanity")) return "bg-red-50 dark:bg-rose-950/15";
-    if (n.includes("solidity")) return "bg-indigo-50 dark:bg-indigo-950/15";
-    if (n.includes("supabase")) return "bg-emerald-50 dark:bg-emerald-950/15";
-    if (n.includes("python")) return "bg-yellow-50 dark:bg-yellow-950/15";
-    return "bg-slate-50 dark:bg-slate-950/15";
-  };
-
   return (
     <section
       id="skills"
-      className="relative py-24 px-4 md:px-12 border-b border-slate-200 dark:border-slate-900/40 overflow-hidden"
+      className="relative py-24 px-4 md:px-12 border-b border-slate-200 dark:border-slate-900/40 overflow-hidden grid-bg-dot"
     >
       {/* CSS Animation Injector */}
       <style>{`
@@ -128,7 +106,7 @@ export default function Skills() {
         <div
           ref={titleRef}
           data-visible={titleVisible ? "true" : undefined}
-          className="scroll-fade-up flex flex-col mb-12"
+          className="scroll-fade-up flex flex-col mb-16"
         >
           <span className="text-xs uppercase tracking-widest text-indigo-500 font-semibold mb-2">
             Keahlian
@@ -136,71 +114,51 @@ export default function Skills() {
           <h2 className="font-heading font-bold text-3xl sm:text-4xl text-text-primary">
             Senjata &amp; Teknologi
           </h2>
-          <div className="section-line w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
+          <div className="section-line w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3 mb-6"></div>
+          <p className="text-text-secondary text-xs sm:text-sm max-w-2xl leading-relaxed">
+            Bahasa pemrograman, framework, basis data, dan perkakas pengembangan yang saya gunakan secara aktif untuk membangun aplikasi web performan, terdesentralisasi, dan berpusat pada pengguna.
+          </p>
         </div>
 
-        {/* Unified Tech Canvas */}
+        {/* Liquid Floating Grid of Honeycomb Hexagon Logos */}
         <div
           ref={gridRef}
           data-visible={gridVisible ? "true" : undefined}
-          className="scroll-fade-up glass-effect rounded-3xl border border-slate-200 dark:border-slate-800/40 p-8 md:p-12 overflow-hidden relative group hover:border-indigo-500/20 transition-all duration-300"
+          className="scroll-fade-up relative z-10 flex flex-wrap gap-x-6 gap-y-8 justify-center items-center"
         >
-          {/* Grid Pattern Background */}
-          <div className="absolute inset-0 grid-bg-dot pointer-events-none opacity-80"></div>
-          
-          {/* Ambient inner glow */}
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/15 transition-all duration-300"></div>
+          {allTechStacks.map((tech, idx) => {
+            // Alternate float animations for parallax-like floating effect
+            const floatClass = idx % 3 === 0 ? "anim-float-1" : idx % 3 === 1 ? "anim-float-2" : "anim-float-3";
+            const gradient = getTechGlowGradient(tech.name);
 
-          <div className="relative z-10 max-w-2xl mb-12 space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
-                <Cpu className="w-5 h-5" />
-              </div>
-              <h3 className="font-heading font-bold text-xl text-text-primary">
-                Tech Stack Universe
-              </h3>
-            </div>
-            <p className="text-text-secondary text-xs sm:text-sm leading-relaxed">
-              Bahasa pemrograman, framework, basis data, dan perkakas pengembangan yang saya gunakan secara aktif untuk membangun aplikasi web performan, terdesentralisasi, dan berpusat pada pengguna.
-            </p>
-          </div>
+            return (
+              <div
+                key={idx}
+                title={tech.name}
+                className={`relative group cursor-help transition-all duration-300 hover:scale-115 hover:-translate-y-1.5 hover:[animation-play-state:paused] ${floatClass}`}
+              >
+                {/* Hexagon Background Glow */}
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300`}
+                  style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+                ></div>
 
-          {/* Liquid Floating Grid of Honeycomb Hexagon Logos */}
-          <div className="relative z-10 flex flex-wrap gap-x-6 gap-y-8 justify-center items-center">
-            {allTechStacks.map((tech, idx) => {
-              // Alternate float animations for parallax-like floating effect
-              const floatClass = idx % 3 === 0 ? "anim-float-1" : idx % 3 === 1 ? "anim-float-2" : "anim-float-3";
-              const gradient = getTechGlowGradient(tech.name);
-
-              return (
-                <div
-                  key={idx}
-                  title={tech.name}
-                  className={`relative group cursor-help transition-all duration-300 hover:scale-115 hover:-translate-y-1.5 hover:[animation-play-state:paused] ${floatClass}`}
+                {/* Outer Hexagon (serving as border gradient) */}
+                <div 
+                  className={`w-[72px] h-[80px] flex items-center justify-center transition-all duration-300 bg-slate-200 dark:bg-slate-800/80 group-hover:bg-gradient-to-br group-hover:${gradient}`}
+                  style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                 >
-                  {/* Hexagon Background Glow */}
+                  {/* Inner Hexagon (body card background) */}
                   <div 
-                    className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300`}
-                    style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
-                  ></div>
-
-                  {/* Outer Hexagon (serving as border gradient) */}
-                  <div 
-                    className={`w-[72px] h-[80px] flex items-center justify-center transition-all duration-300 bg-slate-200 dark:bg-slate-800/80 group-hover:bg-gradient-to-br group-hover:${gradient}`}
+                    className="w-[68px] h-[76px] bg-slate-50 dark:bg-[#070719] flex items-center justify-center transition-colors duration-300 group-hover:bg-white dark:group-hover:bg-[#0d0c2b]"
                     style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                   >
-                    {/* Inner Hexagon (body card background with brand color) */}
-                    <div 
-                      className={`w-[68px] h-[76px] ${getTechBgColor(tech.name)} flex items-center justify-center transition-colors duration-300 group-hover:bg-white dark:group-hover:bg-[#0c0b24]`}
-                      style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
-                    >
-                      <StackIcon name={tech.icon as any} className="w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                    </div>
+                    <StackIcon name={tech.icon as any} className="w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110" />
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
 
       </div>
