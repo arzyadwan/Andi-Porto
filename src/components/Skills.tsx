@@ -1,50 +1,69 @@
 "use client";
 
 import React from "react";
-import { skillCategories } from "../data/portfolioData";
-import { 
-  Laptop, 
-  Database, 
-  Wrench, 
-  Paintbrush, 
-  Cpu, 
-  Server, 
-  GitBranch, 
-  Layers,
-  ArrowRight
-} from "lucide-react";
+import { Cpu } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import StackIcon from "tech-stack-icons";
-import { getTechIconNames } from "@/utils/techIcons";
+
+interface TechItem {
+  name: string;
+  icon: string;
+}
 
 export default function Skills() {
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
-  // Extract skills from data structure for custom mapping
-  const frontendSkills = skillCategories.find(c => c.title.toLowerCase().includes("frontend"))?.skills || [];
-  const backendSkills = skillCategories.find(c => c.title.toLowerCase().includes("backend"))?.skills || [];
-  const toolsSkills = skillCategories.find(c => c.title.toLowerCase().includes("tools"))?.skills || [];
-  const designSkills = skillCategories.find(c => c.title.toLowerCase().includes("design"))?.skills || [];
+  // 26 technologies compiled from your projects and skills data
+  const allTechStacks: TechItem[] = [
+    { name: "React", icon: "react" },
+    { name: "Next.js", icon: "nextjs" },
+    { name: "TypeScript", icon: "typescript" },
+    { name: "Tailwind CSS", icon: "tailwindcss" },
+    { name: "HTML5", icon: "html5" },
+    { name: "CSS3", icon: "css3" },
+    { name: "JavaScript", icon: "js" },
+    { name: "Zustand", icon: "zustand" },
+    { name: "Redux", icon: "redux" },
+    { name: "Node.js", icon: "nodejs" },
+    { name: "Express.js", icon: "expressjs" },
+    { name: "PostgreSQL", icon: "postgresql" },
+    { name: "MongoDB", icon: "mongodb" },
+    { name: "GraphQL", icon: "graphql" },
+    { name: "Git", icon: "git" },
+    { name: "GitHub", icon: "github" },
+    { name: "Docker", icon: "docker" },
+    { name: "Vercel", icon: "vercel" },
+    { name: "Netlify", icon: "netlify" },
+    { name: "Figma", icon: "figma" },
+    { name: "Storybook", icon: "storybook" },
+    { name: "Sanity.io", icon: "sanity" },
+    { name: "Solidity", icon: "solidity" },
+    { name: "Supabase", icon: "supabase" },
+    { name: "Vite", icon: "vitejs" },
+    { name: "Python", icon: "python" }
+  ];
 
   const getTechColorClass = (techName: string) => {
     const n = techName.toLowerCase();
-    if (n.includes("react") || n.includes("next")) return "border-sky-500/30 shadow-sky-500/20 bg-sky-500/5";
-    if (n.includes("typescript")) return "border-blue-500/30 shadow-blue-500/20 bg-blue-500/5";
-    if (n.includes("tailwind")) return "border-teal-500/30 shadow-teal-500/20 bg-teal-500/5";
-    if (n.includes("html") || n.includes("css")) return "border-orange-500/30 shadow-orange-500/20 bg-orange-500/5";
-    if (n.includes("zustand") || n.includes("redux")) return "border-purple-500/30 shadow-purple-500/20 bg-purple-500/5";
-    if (n.includes("node") || n.includes("express")) return "border-green-500/30 shadow-green-500/20 bg-green-500/5";
-    if (n.includes("api") || n.includes("restful")) return "border-cyan-500/30 shadow-cyan-500/20 bg-cyan-500/5";
-    if (n.includes("postgres") || n.includes("mongo") || n.includes("database")) return "border-emerald-500/30 shadow-emerald-500/20 bg-emerald-500/5";
-    if (n.includes("graphql")) return "border-pink-500/30 shadow-pink-500/20 bg-pink-500/5";
-    if (n.includes("git")) return "border-orange-600/30 shadow-orange-600/20 bg-orange-600/5";
-    if (n.includes("docker")) return "border-blue-600/30 shadow-blue-600/20 bg-blue-600/5";
-    if (n.includes("vercel") || n.includes("netlify")) return "border-slate-500/30 shadow-slate-500/20 bg-slate-500/5";
-    if (n.includes("figma")) return "border-rose-500/30 shadow-rose-500/20 bg-rose-500/5";
-    if (n.includes("component") || n.includes("storybook")) return "border-pink-500/30 shadow-pink-500/20 bg-pink-500/5";
-    if (n.includes("token") || n.includes("style")) return "border-amber-500/30 shadow-amber-500/20 bg-amber-500/5";
-    return "border-indigo-500/30 shadow-indigo-500/20 bg-indigo-500/5";
+    if (n.includes("react") || n.includes("next")) return "border-sky-500/20 shadow-sky-500/10 hover:border-sky-400/40 hover:shadow-sky-400/20";
+    if (n.includes("typescript")) return "border-blue-500/20 shadow-blue-500/10 hover:border-blue-400/40 hover:shadow-blue-400/20";
+    if (n.includes("tailwind")) return "border-teal-500/20 shadow-teal-500/10 hover:border-teal-400/40 hover:shadow-teal-400/20";
+    if (n.includes("html") || n.includes("css")) return "border-orange-500/20 shadow-orange-500/10 hover:border-orange-400/40 hover:shadow-orange-400/20";
+    if (n.includes("js") && !n.includes("next") && !n.includes("express")) return "border-yellow-500/20 shadow-yellow-500/10 hover:border-yellow-400/40 hover:shadow-yellow-400/20";
+    if (n.includes("zustand") || n.includes("redux")) return "border-purple-500/20 shadow-purple-500/10 hover:border-purple-400/40 hover:shadow-purple-400/20";
+    if (n.includes("node") || n.includes("express")) return "border-green-500/20 shadow-green-500/10 hover:border-green-400/40 hover:shadow-green-400/20";
+    if (n.includes("postgres") || n.includes("mongo") || n.includes("database") || n.includes("db")) return "border-emerald-500/20 shadow-emerald-500/10 hover:border-emerald-400/40 hover:shadow-emerald-400/20";
+    if (n.includes("graphql")) return "border-pink-500/20 shadow-pink-500/10 hover:border-pink-400/40 hover:shadow-pink-400/20";
+    if (n.includes("git")) return "border-orange-600/20 shadow-orange-600/10 hover:border-orange-500/40 hover:shadow-orange-500/20";
+    if (n.includes("docker")) return "border-blue-600/20 shadow-blue-600/10 hover:border-blue-500/40 hover:shadow-blue-500/20";
+    if (n.includes("figma")) return "border-rose-500/20 shadow-rose-500/10 hover:border-rose-400/40 hover:shadow-rose-400/20";
+    if (n.includes("storybook")) return "border-pink-500/20 shadow-pink-500/10 hover:border-pink-400/40 hover:shadow-pink-400/20";
+    if (n.includes("sanity")) return "border-red-500/20 shadow-red-500/10 hover:border-red-400/40 hover:shadow-red-400/20";
+    if (n.includes("solidity")) return "border-indigo-500/20 shadow-indigo-500/10 hover:border-indigo-400/40 hover:shadow-indigo-400/20";
+    if (n.includes("supabase")) return "border-emerald-600/20 shadow-emerald-600/10 hover:border-emerald-500/40 hover:shadow-emerald-500/20";
+    if (n.includes("python")) return "border-yellow-600/20 shadow-yellow-600/10 hover:border-yellow-500/40 hover:shadow-yellow-500/20";
+    return "border-slate-500/20 shadow-slate-500/10 hover:border-slate-400/40 hover:shadow-slate-400/20";
   };
 
   return (
@@ -60,20 +79,15 @@ export default function Skills() {
         }
         @keyframes float-y-2 {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-14px) rotate(-1.5deg); }
+          50% { transform: translateY(-13px) rotate(-1.2deg); }
         }
         @keyframes float-y-3 {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-7px) rotate(0.8deg); }
-        }
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
+          50% { transform: translateY(-8px) rotate(0.8deg); }
         }
         .anim-float-1 { animation: float-y-1 7s ease-in-out infinite; }
         .anim-float-2 { animation: float-y-2 9s ease-in-out infinite; }
         .anim-float-3 { animation: float-y-3 6s ease-in-out infinite; }
-        .animate-marquee { animation: marquee 25s linear infinite; }
         .grid-bg-dot {
           background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1.5px, transparent 1.5px);
           background-size: 24px 24px;
@@ -92,7 +106,7 @@ export default function Skills() {
         <div
           ref={titleRef}
           data-visible={titleVisible ? "true" : undefined}
-          className="scroll-fade-up flex flex-col mb-16"
+          className="scroll-fade-up flex flex-col mb-12"
         >
           <span className="text-xs uppercase tracking-widest text-indigo-500 font-semibold mb-2">
             Keahlian
@@ -103,222 +117,52 @@ export default function Skills() {
           <div className="section-line w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-3"></div>
         </div>
 
-        {/* Bento Grid Layout */}
+        {/* Unified Tech Canvas */}
         <div
           ref={gridRef}
           data-visible={gridVisible ? "true" : undefined}
-          className="scroll-fade-up grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children"
+          className="scroll-fade-up glass-effect rounded-3xl border border-slate-200 dark:border-slate-800/40 p-8 md:p-12 overflow-hidden relative group hover:border-indigo-500/20 transition-all duration-300"
         >
+          {/* Grid Pattern Background */}
+          <div className="absolute inset-0 grid-bg-dot pointer-events-none opacity-80"></div>
           
-          {/* Bento Card 1: Frontend Masterclass (Col Span 2, Row Span 2) */}
-          <div 
-            className="md:col-span-2 md:row-span-2 glass-effect rounded-3xl border border-slate-200 dark:border-slate-800/40 p-8 flex flex-col justify-between overflow-hidden relative group hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 min-h-[380px]"
-          >
-            {/* Grid Pattern Background */}
-            <div className="absolute inset-0 grid-bg-dot pointer-events-none opacity-80"></div>
-            
-            {/* Ambient inner glow */}
-            <div className="absolute -top-20 -right-20 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/15 transition-all duration-300"></div>
+          {/* Ambient inner glow */}
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/15 transition-all duration-300"></div>
 
-            <div className="relative z-10 space-y-2">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
-                  <Cpu className="w-5 h-5" />
-                </div>
-                <h3 className="font-heading font-bold text-xl text-text-primary">
-                  Frontend Engineering
-                </h3>
+          <div className="relative z-10 max-w-2xl mb-12 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                <Cpu className="w-5 h-5" />
               </div>
-              <p className="text-text-secondary text-xs sm:text-sm max-w-md">
-                Pembangunan antarmuka web modern yang estetik, fluid, responsive, dan performan dengan state management modern.
-              </p>
+              <h3 className="font-heading font-bold text-xl text-text-primary">
+                Tech Stack Universe
+              </h3>
             </div>
-
-            {/* Constellation Workspace of Orbiting Floating Technology Logos */}
-            <div className="relative h-44 sm:h-56 mt-6 flex items-center justify-center">
-              {frontendSkills.map((skill, idx) => {
-                const matched = getTechIconNames(skill.name);
-                const colorClass = getTechColorClass(skill.name);
-                
-                // Set custom offset positions to scatter them beautifully in a modern layout
-                const positions = [
-                  "top-[10%] left-[10%] anim-float-1",
-                  "top-[50%] left-[25%] anim-float-2",
-                  "top-[20%] right-[20%] anim-float-3",
-                  "bottom-[15%] right-[30%] anim-float-1",
-                  "top-[60%] right-[10%] anim-float-2"
-                ];
-
-                return (
-                  <div
-                    key={idx}
-                    title={skill.name}
-                    className={`absolute ${positions[idx] || "top-1/2 left-1/2"} flex items-center justify-center p-4 rounded-2xl border bg-white/70 dark:bg-slate-900/60 shadow-lg backdrop-blur-md cursor-help transition-all duration-300 hover:scale-125 hover:-translate-y-2 hover:bg-white dark:hover:bg-slate-900 ${colorClass}`}
-                  >
-                    <div className="flex gap-2">
-                      {matched.map(icon => (
-                        <StackIcon key={icon} name={icon as any} className="w-8 h-8 shrink-0" />
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <p className="text-text-secondary text-xs sm:text-sm leading-relaxed">
+              Bahasa pemrograman, framework, basis data, dan perkakas pengembangan yang saya gunakan secara aktif untuk membangun aplikasi web performan, terdesentralisasi, dan berpusat pada pengguna.
+            </p>
           </div>
 
-          {/* Bento Card 2: Backend Architecture (Col Span 1, Row Span 1) */}
-          <div 
-            className="md:col-span-1 glass-effect rounded-3xl border border-slate-200 dark:border-slate-800/40 p-6 flex flex-col justify-between overflow-hidden relative group hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/5 transition-all duration-300 min-h-[220px]"
-          >
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-500/5 rounded-full blur-2xl pointer-events-none"></div>
+          {/* Liquid Floating Grid of Logos */}
+          <div className="relative z-10 flex flex-wrap gap-4 sm:gap-6 justify-center items-center">
+            {allTechStacks.map((tech, idx) => {
+              // Alternate float animations for parallax-like floating effect
+              const floatClass = idx % 3 === 0 ? "anim-float-1" : idx % 3 === 1 ? "anim-float-2" : "anim-float-3";
+              const colorClass = getTechColorClass(tech.name);
 
-            <div className="relative z-10 space-y-2">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                  <Database className="w-4 h-4" />
+              return (
+                <div
+                  key={idx}
+                  title={tech.name}
+                  className={`flex items-center justify-center p-4 sm:p-5 rounded-2xl border bg-white/70 dark:bg-slate-900/60 shadow-lg backdrop-blur-md cursor-help transition-all duration-300 hover:scale-125 hover:-translate-y-2 hover:bg-white dark:hover:bg-slate-900 hover:[animation-play-state:paused] ${floatClass} ${colorClass}`}
+                >
+                  <StackIcon name={tech.icon as any} className="w-8 h-8 sm:w-10 sm:h-10 shrink-0" />
                 </div>
-                <h3 className="font-heading font-bold text-md text-text-primary">
-                  Backend Architecture
-                </h3>
-              </div>
-              <p className="text-text-secondary text-[11px] sm:text-xs">
-                Perancangan sistem API RESTful, GraphQL, dan modeling basis data terdistribusi yang aman dan terukur.
-              </p>
-            </div>
-
-            {/* Micro connectivity diagram showing Backend Technologies */}
-            <div className="relative h-20 flex items-center justify-between px-2 mt-4">
-              {/* Floating connector background */}
-              <svg className="absolute inset-0 w-full h-full text-slate-200 dark:text-slate-800/60 pointer-events-none z-0" fill="none">
-                <path d="M 20 40 Q 90 20 160 40 T 300 40" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" className="group-hover:text-purple-500/40 transition-colors duration-300" />
-              </svg>
-
-              {backendSkills.map((skill, idx) => {
-                const matched = getTechIconNames(skill.name);
-                const colorClass = getTechColorClass(skill.name);
-                if (matched.length === 0) return null;
-
-                return (
-                  <div
-                    key={idx}
-                    title={skill.name}
-                    className={`relative z-10 p-2.5 rounded-xl border bg-white/70 dark:bg-slate-900/60 backdrop-blur-md shadow-md cursor-help transition-all duration-300 hover:scale-115 hover:-translate-y-1 ${colorClass}`}
-                  >
-                    <StackIcon name={matched[0] as any} className="w-5 h-5 shrink-0" />
-                  </div>
-                );
-              })}
-            </div>
+              );
+            })}
           </div>
-
-          {/* Bento Card 3: DevOps & Tools (Col Span 1, Row Span 1) */}
-          <div 
-            className="md:col-span-1 glass-effect rounded-3xl border border-slate-200 dark:border-slate-800/40 p-6 flex flex-col justify-between overflow-hidden relative group hover:border-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 min-h-[220px]"
-          >
-            <div className="absolute -top-10 -left-10 w-45 h-45 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
-
-            <div className="relative z-10 space-y-2">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                  <Wrench className="w-4 h-4" />
-                </div>
-                <h3 className="font-heading font-bold text-md text-text-primary">
-                  DevOps &amp; Infrastructure
-                </h3>
-              </div>
-              <p className="text-text-secondary text-[11px] sm:text-xs">
-                Manajemen deployment repositori, containerization Docker, serta sistem integrasi kontinu (CI/CD).
-              </p>
-            </div>
-
-            {/* Conveyor Marquee Belt of Tools */}
-            <div className="relative mt-4 overflow-hidden w-full py-2.5 border-y border-slate-100 dark:border-slate-800/30">
-              <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused]">
-                {/* Render double array to allow continuous infinite loop */}
-                {[...toolsSkills, ...toolsSkills].map((skill, idx) => {
-                  const matched = getTechIconNames(skill.name);
-                  const colorClass = getTechColorClass(skill.name);
-                  if (matched.length === 0) return null;
-
-                  return (
-                    <div
-                      key={idx}
-                      title={skill.name}
-                      className={`p-2 rounded-xl border bg-white/70 dark:bg-slate-900/60 backdrop-blur-sm shadow-sm cursor-help transition-all duration-300 hover:scale-110 ${colorClass}`}
-                    >
-                      <StackIcon name={matched[0] as any} className="w-5 h-5 shrink-0" />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Bento Card 4: Design Systems (Col Span 1, Row Span 2) */}
-          <div 
-            className="md:col-span-1 md:row-span-2 glass-effect rounded-3xl border border-slate-200 dark:border-slate-800/40 p-6 flex flex-col justify-between overflow-hidden relative group hover:border-pink-500/30 hover:shadow-xl hover:shadow-pink-500/5 transition-all duration-300 min-h-[380px]"
-          >
-            {/* Dot Grid Background */}
-            <div className="absolute inset-0 grid-bg-dot opacity-40 pointer-events-none"></div>
-
-            <div className="relative z-10 space-y-2">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400">
-                  <Paintbrush className="w-4 h-4" />
-                </div>
-                <h3 className="font-heading font-bold text-md text-text-primary">
-                  Design &amp; Tokens
-                </h3>
-              </div>
-              <p className="text-text-secondary text-[11px] sm:text-xs">
-                Implementasi desain antarmuka terpadu, prototyping Figma, komponen terdokumentasi, serta design tokens yang sinkron.
-              </p>
-            </div>
-
-            {/* Design canvas blueprint mock workspace */}
-            <div className="relative h-60 mt-6 flex items-center justify-center bg-slate-100/30 dark:bg-slate-950/20 border border-slate-100 dark:border-slate-800/30 rounded-2xl overflow-hidden p-4">
-              
-              {/* Figma Center Core */}
-              <div 
-                title="Figma (UI/UX Design)"
-                className="z-10 p-5 rounded-2xl border bg-white dark:bg-slate-900 border-rose-500/30 shadow-lg shadow-rose-500/10 hover:scale-115 transition-transform duration-300 cursor-help"
-              >
-                <StackIcon name="figma" className="w-10 h-10 animate-pulse" style={{ animationDuration: "3s" }} />
-              </div>
-
-              {/* Satellite design nodes */}
-              {designSkills.filter(s => !s.name.toLowerCase().includes("figma")).map((skill, idx) => {
-                const matched = getTechIconNames(skill.name);
-                const colorClass = getTechColorClass(skill.name);
-                const positions = [
-                  "absolute top-6 left-6 anim-float-2",
-                  "absolute bottom-6 right-6 anim-float-3"
-                ];
-
-                return (
-                  <div
-                    key={idx}
-                    title={skill.name}
-                    className={`p-3 rounded-xl border bg-white/70 dark:bg-slate-900/60 backdrop-blur-md shadow-md cursor-help transition-all duration-300 hover:scale-115 ${positions[idx] || ""} ${colorClass}`}
-                  >
-                    {matched.length > 0 ? (
-                      <StackIcon name={matched[0] as any} className="w-6 h-6 shrink-0" />
-                    ) : (
-                      <Layers className="w-6 h-6 text-pink-500 shrink-0" />
-                    )}
-                  </div>
-                );
-              })}
-
-              {/* Visual crosshair alignment markers to look like design tools */}
-              <div className="absolute inset-x-0 h-px border-t border-dashed border-slate-200 dark:border-slate-800/60 pointer-events-none"></div>
-              <div className="absolute inset-y-0 w-px border-l border-dashed border-slate-200 dark:border-slate-800/60 pointer-events-none"></div>
-              <span className="absolute top-2 left-2 text-[8px] text-slate-400 font-mono">X: 180 Y: 240</span>
-              <span className="absolute bottom-2 right-2 text-[8px] text-slate-400 font-mono">100% SCALE</span>
-            </div>
-          </div>
-
         </div>
+
       </div>
     </section>
   );
