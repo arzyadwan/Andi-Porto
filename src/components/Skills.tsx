@@ -44,26 +44,26 @@ export default function Skills() {
     { name: "Python", icon: "python" }
   ];
 
-  const getTechColorClass = (techName: string) => {
+  const getTechGlowGradient = (techName: string) => {
     const n = techName.toLowerCase();
-    if (n.includes("react") || n.includes("next")) return "border-sky-500/20 shadow-sky-500/10 hover:border-sky-400/40 hover:shadow-sky-400/20";
-    if (n.includes("typescript")) return "border-blue-500/20 shadow-blue-500/10 hover:border-blue-400/40 hover:shadow-blue-400/20";
-    if (n.includes("tailwind")) return "border-teal-500/20 shadow-teal-500/10 hover:border-teal-400/40 hover:shadow-teal-400/20";
-    if (n.includes("html") || n.includes("css")) return "border-orange-500/20 shadow-orange-500/10 hover:border-orange-400/40 hover:shadow-orange-400/20";
-    if (n.includes("js") && !n.includes("next") && !n.includes("express")) return "border-yellow-500/20 shadow-yellow-500/10 hover:border-yellow-400/40 hover:shadow-yellow-400/20";
-    if (n.includes("zustand") || n.includes("redux")) return "border-purple-500/20 shadow-purple-500/10 hover:border-purple-400/40 hover:shadow-purple-400/20";
-    if (n.includes("node") || n.includes("express")) return "border-green-500/20 shadow-green-500/10 hover:border-green-400/40 hover:shadow-green-400/20";
-    if (n.includes("postgres") || n.includes("mongo") || n.includes("database") || n.includes("db")) return "border-emerald-500/20 shadow-emerald-500/10 hover:border-emerald-400/40 hover:shadow-emerald-400/20";
-    if (n.includes("graphql")) return "border-pink-500/20 shadow-pink-500/10 hover:border-pink-400/40 hover:shadow-pink-400/20";
-    if (n.includes("git")) return "border-orange-600/20 shadow-orange-600/10 hover:border-orange-500/40 hover:shadow-orange-500/20";
-    if (n.includes("docker")) return "border-blue-600/20 shadow-blue-600/10 hover:border-blue-500/40 hover:shadow-blue-500/20";
-    if (n.includes("figma")) return "border-rose-500/20 shadow-rose-500/10 hover:border-rose-400/40 hover:shadow-rose-400/20";
-    if (n.includes("storybook")) return "border-pink-500/20 shadow-pink-500/10 hover:border-pink-400/40 hover:shadow-pink-400/20";
-    if (n.includes("sanity")) return "border-red-500/20 shadow-red-500/10 hover:border-red-400/40 hover:shadow-red-400/20";
-    if (n.includes("solidity")) return "border-indigo-500/20 shadow-indigo-500/10 hover:border-indigo-400/40 hover:shadow-indigo-400/20";
-    if (n.includes("supabase")) return "border-emerald-600/20 shadow-emerald-600/10 hover:border-emerald-500/40 hover:shadow-emerald-500/20";
-    if (n.includes("python")) return "border-yellow-600/20 shadow-yellow-600/10 hover:border-yellow-500/40 hover:shadow-yellow-500/20";
-    return "border-slate-500/20 shadow-slate-500/10 hover:border-slate-400/40 hover:shadow-slate-400/20";
+    if (n.includes("react") || n.includes("next")) return "from-sky-400 to-blue-600";
+    if (n.includes("typescript")) return "from-blue-500 to-indigo-600";
+    if (n.includes("tailwind")) return "from-teal-400 to-emerald-500";
+    if (n.includes("html") || n.includes("css")) return "from-orange-400 to-rose-500";
+    if (n.includes("js") && !n.includes("next") && !n.includes("express")) return "from-yellow-400 to-amber-500";
+    if (n.includes("zustand") || n.includes("redux")) return "from-purple-500 to-violet-600";
+    if (n.includes("node") || n.includes("express")) return "from-green-400 to-emerald-600";
+    if (n.includes("postgres") || n.includes("mongo") || n.includes("database") || n.includes("db")) return "from-cyan-500 to-emerald-500";
+    if (n.includes("graphql")) return "from-pink-500 to-rose-600";
+    if (n.includes("git")) return "from-orange-600 to-red-500";
+    if (n.includes("docker")) return "from-blue-600 to-sky-400";
+    if (n.includes("figma")) return "from-rose-500 to-pink-600";
+    if (n.includes("storybook")) return "from-pink-500 to-purple-500";
+    if (n.includes("sanity")) return "from-red-500 to-rose-600";
+    if (n.includes("solidity")) return "from-indigo-500 to-purple-600";
+    if (n.includes("supabase")) return "from-emerald-500 to-green-600";
+    if (n.includes("python")) return "from-yellow-500 to-blue-500";
+    return "from-slate-400 to-slate-600";
   };
 
   return (
@@ -143,20 +143,38 @@ export default function Skills() {
             </p>
           </div>
 
-          {/* Liquid Floating Grid of Logos */}
-          <div className="relative z-10 flex flex-wrap gap-4 sm:gap-6 justify-center items-center">
+          {/* Liquid Floating Grid of Honeycomb Hexagon Logos */}
+          <div className="relative z-10 flex flex-wrap gap-x-6 gap-y-8 justify-center items-center">
             {allTechStacks.map((tech, idx) => {
               // Alternate float animations for parallax-like floating effect
               const floatClass = idx % 3 === 0 ? "anim-float-1" : idx % 3 === 1 ? "anim-float-2" : "anim-float-3";
-              const colorClass = getTechColorClass(tech.name);
+              const gradient = getTechGlowGradient(tech.name);
 
               return (
                 <div
                   key={idx}
                   title={tech.name}
-                  className={`flex items-center justify-center p-4 sm:p-5 rounded-2xl border bg-white/70 dark:bg-slate-900/60 shadow-lg backdrop-blur-md cursor-help transition-all duration-300 hover:scale-125 hover:-translate-y-2 hover:bg-white dark:hover:bg-slate-900 hover:[animation-play-state:paused] ${floatClass} ${colorClass}`}
+                  className={`relative group cursor-help transition-all duration-300 hover:scale-115 hover:-translate-y-1.5 hover:[animation-play-state:paused] ${floatClass}`}
                 >
-                  <StackIcon name={tech.icon as any} className="w-8 h-8 sm:w-10 sm:h-10 shrink-0" />
+                  {/* Hexagon Background Glow */}
+                  <div 
+                    className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300`}
+                    style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+                  ></div>
+
+                  {/* Outer Hexagon (serving as border gradient) */}
+                  <div 
+                    className={`w-[72px] h-[80px] flex items-center justify-center transition-all duration-300 bg-slate-200 dark:bg-slate-800/80 group-hover:bg-gradient-to-br group-hover:${gradient}`}
+                    style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+                  >
+                    {/* Inner Hexagon (body card background) */}
+                    <div 
+                      className="w-[68px] h-[76px] bg-slate-50 dark:bg-[#070719] flex items-center justify-center transition-colors duration-300 group-hover:bg-white dark:group-hover:bg-[#0d0c2b]"
+                      style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
+                    >
+                      <StackIcon name={tech.icon as any} className="w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                  </div>
                 </div>
               );
             })}
