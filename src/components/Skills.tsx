@@ -135,25 +135,25 @@ export default function Skills() {
               <div key={idx} className={floatClass}>
                 <div
                   title={tech.name}
-                  className="relative group cursor-help transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] mx-0 hover:mx-[14px] hover:scale-125 hover:rotate-12"
+                  className="relative group cursor-help transition-all duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)] mx-0 hover:mx-[14px] hover:scale-125 hover:rotate-12"
                 >
                   {/* Hexagon Background Glow */}
                   <div 
-                    className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-1000`}
                     style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                   ></div>
 
                   {/* Outer Hexagon (serving as border gradient) */}
                   <div 
-                    className={`w-[72px] h-[80px] flex items-center justify-center transition-all duration-500 bg-slate-200 dark:bg-slate-800/80 group-hover:bg-gradient-to-br group-hover:${gradient}`}
+                    className={`w-[72px] h-[80px] flex items-center justify-center transition-all duration-1000 bg-slate-200 dark:bg-slate-800/80 group-hover:bg-gradient-to-br group-hover:${gradient}`}
                     style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                   >
                     {/* Inner Hexagon (body card background) */}
                     <div 
-                      className="w-[68px] h-[76px] bg-slate-50 dark:bg-[#070719] flex items-center justify-center transition-colors duration-500 group-hover:bg-white dark:group-hover:bg-[#0d0c2b]"
+                      className="w-[68px] h-[76px] bg-slate-50 dark:bg-[#070719] flex items-center justify-center transition-colors duration-1000 group-hover:bg-white dark:group-hover:bg-[#0d0c2b]"
                       style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                     >
-                      <StackIcon name={tech.icon as any} className="w-8 h-8 shrink-0 transition-transform duration-500 group-hover:scale-110" />
+                      <StackIcon name={tech.icon as any} className="w-8 h-8 shrink-0 transition-transform duration-1000 group-hover:scale-110" />
                     </div>
                   </div>
                 </div>
